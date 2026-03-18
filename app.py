@@ -40,21 +40,23 @@ st.set_page_config(
 # ---------------------------------------------------------------------------
 
 STRATEGIES = {
-    0: ("Frontier",       "Esplorazione frontier-based sistematica"),
-    1: ("FrontierGreedy", "Greedy verso oggetti noti, fallback frontier"),
-    2: ("Sector",         "Suddivide la griglia in settori assegnati"),
-    3: ("Spiral",         "Movimento a spirale verso l'esterno"),
-    4: ("Random",         "Passeggiata casuale"),
+    0: ("Frontier",    "Esplorazione frontier-based sistematica"),
+    1: ("Greedy",      "Esplorazione warehouse-centric"),
+    2: ("Sector",      "Suddivide la griglia in settori assegnati"),
+    3: ("Repulsion",   "Dispersione emergente dagli altri agenti"),
+    4: ("Smart Random", "Random walk guidato da info gain, stale e separazione"),
+    5: ("Ant-Colony",  "Coverage con feromone evaporativo condiviso"),
 }
 
-DEFAULT_RADIUS = {0: 2, 1: 3, 2: 2, 3: 1, 4: 1}
+DEFAULT_RADIUS = {0: 2, 1: 3, 2: 2, 3: 2, 4: 1, 5: 2}
 
 STRATEGY_COLORS = {
-    "Frontier":       "#4C72B0",
-    "FrontierGreedy": "#DD8452",
-    "Sector":         "#55A868",
-    "Spiral":         "#C44E52",
-    "Random":         "#8172B2",
+    "Frontier":    "#4C72B0",
+    "Greedy":      "#DD8452",
+    "Sector":      "#55A868",
+    "Repulsion":   "#C44E52",
+    "Smart Random": "#8172B2",
+    "Ant-Colony":  "#1F9D8A",
 }
 
 # ---------------------------------------------------------------------------
@@ -485,15 +487,17 @@ def _build_agents(agent_configs: list, num_agents: int):
     from src.agents.strategies.frontier import FrontierStrategy
     from src.agents.strategies.greedy import GreedyStrategy
     from src.agents.strategies.sector import SectorStrategy
-    from src.agents.strategies.spiral import SpiralStrategy
+    from src.agents.strategies.Repulsion import RepulsionStrategy
     from src.agents.strategies.random_walk import RandomWalkStrategy
+    from src.agents.strategies.ant_colony_lite import AntColonyLiteStrategy
 
     factories = {
         0: lambda: FrontierStrategy(),
         1: lambda: GreedyStrategy(),
         2: lambda: SectorStrategy(num_agents=num_agents),
-        3: lambda: SpiralStrategy(),
+        3: lambda: RepulsionStrategy(),
         4: lambda: RandomWalkStrategy(),
+        5: lambda: AntColonyLiteStrategy(),
     }
 
     agents = []
@@ -993,10 +997,7 @@ with tab_sim:
 # ===================================================================
 
 with tab_bench:
-    st.subheader("🔬 Benchmark esplorativo")
     st.caption("Genera N preset casuali variando il comportamento di ogni agente.")
-    st.divider()
-
 
     col_left, col_mid, col_right = st.columns(3)
 

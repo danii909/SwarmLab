@@ -9,10 +9,11 @@ Quando trasporta, si dirige al magazzino più vicino.
 
 from __future__ import annotations
 
+from collections import deque
 from typing import Optional, Set, Tuple, TYPE_CHECKING
 
 from src.agents.strategies.base import ExplorationStrategy
-from src.environment.grid import CellType
+from src.environment.grid import CellType, DIRECTIONS
 
 if TYPE_CHECKING:
     from src.agents.agent import Agent
@@ -42,18 +43,40 @@ class FrontierStrategy(ExplorationStrategy):
         if move:
             return move
 
-        # --- Usa mappa globale nota (la layout è data) ---
-        targets = self._coverage_targets(agent, env)
-        if not targets:
-            # Tutto visitato: random walk
+        # --- Calcola frontiere nella mappa locale ---
+        frontiers = self._find_frontiers(agent, env)
+        if not frontiers:
+            # Mappa completamente esplorata: random walk
             neighbors = env.grid.walkable_neighbors(agent.row, agent.col)
             free = [n for n in neighbors if n not in occupied]
             return free[0] if free else (neighbors[0] if neighbors else None)
 
-        # Vai al target non visitato più vicino
+        # Vai alla frontiera più vicina
         best = min(
-            targets,
+            frontiers,
             key=lambda p: abs(p[0] - agent.row) + abs(p[1] - agent.col),
         )
         step = pathfinder.next_step(agent.pos, best, occupied - {agent.pos})
         return step
+
+    # ------------------------------------------------------------------
+
+    def _find_frontiers(
+        self, agent: "Agent", env: "Environment"
+    ) -> Set[Tuple[int, int]]:
+        """
+        Una cella è una frontiera se:
+        - è nella mappa locale (esplorata)
+        - è percorribile (solo EMPTY: le porte dei magazzini non sono esplorabili)
+        - ha almeno un vicino NON presente nella mappa locale
+        """
+        frontiers: Set[Tuple[int, int]] = set()
+        for (r, c), cell_type in agent.local_map.items():
+            if cell_type != CellType.EMPTY:
+                continue
+            for dr, dc in DIRECTIONS:
+                nr, nc = r + dr, c + dc
+                if (nr, nc) not in agent.local_map and env.grid.in_bounds(nr, nc):
+                    frontiers.add((r, c))
+                    break
+        return frontiers

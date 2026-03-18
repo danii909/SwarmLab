@@ -63,12 +63,26 @@ class Agent:
         # Mappa locale: (row, col) → CellType
         self.local_map: Dict[Tuple[int, int], CellType] = {}
 
+        # Celle osservate (per tracciamento copertura): {(row, col)}
+        self.seen_cells: Set[Tuple[int, int]] = set()
+
+        # Ultimo tick di osservazione per una cella: {(row, col): tick}
+        self.cell_last_seen: Dict[Tuple[int, int], int] = {}
+
         # Oggetti rilevati ma non ancora raccolti
         self.known_objects: Set[Tuple[int, int]] = set()
 
         # Posizioni note di altri agenti: id → (posizione, tick_osservazione)
         # Aggiornato per visibilità diretta e per comunicazione transitiva.
         self.known_agents: Dict[int, Tuple[Tuple[int, int], int]] = {}
+
+        # Prenotazione consegna locale (ingresso scelto + lock temporale)
+        self.delivery_reservation: Optional[Tuple[int, int]] = None
+        self.delivery_lock_until: int = -1
+
+        # Prenotazioni note di altri agenti:
+        # id -> (entrance_pos, tick_osservazione, lock_until_tick)
+        self.known_reservations: Dict[int, Tuple[Tuple[int, int], int, int]] = {}
 
         # Statistiche
         self.steps_taken: int = 0
@@ -109,6 +123,9 @@ class Agent:
         # Aggiorna mappa locale
         for (r, c) in visible:
             self.local_map[(r, c)] = env.grid.cell(r, c)
+            # Traccia celle osservate e tick di osservazione
+            self.seen_cells.add((r, c))
+            self.cell_last_seen[(r, c)] = env.tick
 
         # Rileva oggetti nel campo visivo
         detected = env.sense_objects(visible)
@@ -196,6 +213,14 @@ class Agent:
         other.local_map.update(self.local_map)
         self.known_objects.update(other.known_objects)
         other.known_objects.update(self.known_objects)
+
+        # Merge prenotazioni conosciute (mantieni l'osservazione piu' recente)
+        merged_res = dict(self.known_reservations)
+        for aid, entry in other.known_reservations.items():
+            if aid not in merged_res or merged_res[aid][1] < entry[1]:
+                merged_res[aid] = entry
+        self.known_reservations = merged_res.copy()
+        other.known_reservations = merged_res.copy()
 
     # ------------------------------------------------------------------
     # Decisione (delegata alla strategia)

@@ -7,6 +7,9 @@ __pycache__/
 .venv
 venv/
 env/
+assets/
+presets/
+32ksim/
 results/*.json
 results/*.png
 !results/.gitkeep

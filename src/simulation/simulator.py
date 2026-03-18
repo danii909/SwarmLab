@@ -19,9 +19,9 @@ from typing import Dict, List, Optional, Set, Tuple, TYPE_CHECKING
 from src.environment.environment import Environment
 from src.environment.grid import CellType
 from src.agents.agent import Agent, AgentState
-from src.agents.strategies.random_walk import RandomWalkStrategy
+from src.agents.strategies.ant_colony_lite import AntColonyLiteStrategy
 from src.agents.strategies.frontier import FrontierStrategy
-from src.agents.strategies.spiral import SpiralStrategy
+from src.agents.strategies.Repulsion import RepulsionStrategy
 from src.agents.strategies.sector import SectorStrategy
 from src.agents.strategies.greedy import GreedyStrategy
 from src.communication.protocol import communicate_agents
@@ -36,9 +36,9 @@ from src.simulation.metrics import Metrics
 def _create_default_agents(num_agents: int = 5) -> List[Agent]:
     """Crea 5 agenti, uno per strategia, con raggio visibilità variato."""
     strategies = [
-        RandomWalkStrategy(),
+        AntColonyLiteStrategy(),
         FrontierStrategy(),
-        SpiralStrategy(),
+        RepulsionStrategy(),
         SectorStrategy(num_agents=num_agents),
         GreedyStrategy(),
     ]
@@ -117,19 +117,20 @@ class Simulator:
                 self.env.advance_tick()
 
                 # 1. Percezione
+                visible_by_agent: Dict[int, Set[Tuple[int, int]]] = {}
                 for agent in self.agents:
                     if agent.is_active:
-                        agent.perceive(self.env)
+                        visible_by_agent[agent.id] = agent.perceive(self.env)
 
-                # 1b. Aggiorna known_agents con agenti visibili direttamente
+                # 1b. Aggiorna known_agents con agenti realmente visibili
                 for agent in self.agents:
                     if not agent.is_active:
                         continue
+                    visible = visible_by_agent.get(agent.id, set())
                     for other in self.agents:
                         if other.id == agent.id or not other.is_active:
                             continue
-                        dist = abs(other.row - agent.row) + abs(other.col - agent.col)
-                        if dist <= agent.visibility_radius:
+                        if other.pos in visible:
                             agent.known_agents[other.id] = (other.pos, self._tick)
 
                 # 2. Comunicazione (propaga anche known_agents transitivamente)
@@ -220,19 +221,20 @@ class Simulator:
                 self.env.advance_tick()
 
                 # 1. Percezione
+                visible_by_agent: Dict[int, Set[Tuple[int, int]]] = {}
                 for agent in self.agents:
                     if agent.is_active:
-                        agent.perceive(self.env)
+                        visible_by_agent[agent.id] = agent.perceive(self.env)
 
-                # 1b. Aggiorna known_agents con agenti visibili direttamente
+                # 1b. Aggiorna known_agents con agenti realmente visibili
                 for agent in self.agents:
                     if not agent.is_active:
                         continue
+                    visible = visible_by_agent.get(agent.id, set())
                     for other in self.agents:
                         if other.id == agent.id or not other.is_active:
                             continue
-                        dist = abs(other.row - agent.row) + abs(other.col - agent.col)
-                        if dist <= agent.visibility_radius:
+                        if other.pos in visible:
                             agent.known_agents[other.id] = (other.pos, self._tick)
 
                 # 2. Comunicazione
@@ -298,8 +300,8 @@ class Simulator:
         1. Un agente che non si muove (dest=None) occupa la sua cella corrente.
         2. Un agente in movimento non può spostarsi in una cella occupata da
            un agente stazionario.
-        3. Se due agenti vogliono spostarsi nella stessa cella, si muove solo
-           quello con ID minore; l'altro resta fermo.
+          3. Se due agenti vogliono spostarsi nella stessa cella, ha priorità
+              chi trasporta un oggetto; a parità vince l'ID minore.
 
         Nota: all'avvio tutti gli agenti partono da [0,0], quindi la
         sovrapposizione al tick 0 è inevitabile (consentita per progetto
@@ -329,8 +331,12 @@ class Simulator:
             if len(agent_ids) == 1:
                 allowed.add(agent_ids[0])
             else:
-                # Vince l'agente con ID minore
-                allowed.add(min(agent_ids))
+                # Priorità a chi trasporta; a parità, ID minore.
+                carrying_ids = [aid for aid in agent_ids if agents_by_id[aid].carrying_object]
+                if carrying_ids:
+                    allowed.add(min(carrying_ids))
+                else:
+                    allowed.add(min(agent_ids))
 
         # Esegui le mosse consentite
         for agent_id, dest in moves.items():

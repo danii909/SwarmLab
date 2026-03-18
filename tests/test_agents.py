@@ -8,9 +8,9 @@ from src.agents.agent import Agent, AgentState
 from src.agents.sensors import compute_visible_cells, can_communicate
 from src.agents.strategies.random_walk import RandomWalkStrategy
 from src.agents.strategies.frontier import FrontierStrategy
-from src.agents.strategies.spiral import SpiralStrategy
 from src.agents.strategies.sector import SectorStrategy
 from src.agents.strategies.greedy import GreedyStrategy
+from src.agents.strategies.Repulsion import RepulsionStrategy
 from src.environment.grid import Grid, CellType
 
 INSTANCE_A = os.path.join(os.path.dirname(__file__), "..", "Consegna", "A.json")
@@ -106,8 +106,8 @@ def test_agent_communicate_out_of_range():
 @pytest.mark.parametrize("StratClass", [
     RandomWalkStrategy,
     FrontierStrategy,
-    SpiralStrategy,
     GreedyStrategy,
+    RepulsionStrategy,
 ])
 def test_strategy_returns_valid_move(StratClass):
     from src.environment.environment import Environment

@@ -1,7 +1,11 @@
 # Sistema Multi-Agente per il Recupero di Oggetti in una Rete di Magazzini
 
-Simulazione swarm intelligence su griglia 25x25 dove 5 agenti autonomi esplorano
-un ambiente ignoto, individuano oggetti e li consegnano ai magazzini.
+Simulazione swarm intelligence su griglia 25x25 dove 5 agenti autonomi cercano
+oggetti e li consegnano ai magazzini.
+
+Assunzione operativa aggiornata:
+- la mappa statica e' nota a priori (muri, corridoi, porte, magazzini)
+- la posizione degli oggetti resta ignota e viene scoperta via sensori
 
 ## Struttura del progetto
 
@@ -75,6 +79,11 @@ python run_simulation.py --instance Consegna/A.json --max-ticks 750
 | Consumo per mossa | 1 unità |
 | Raggio visibilità | 1-3 celle (Manhattan + occlusione) |
 | Raggio comunicazione | 1-2 celle |
+
+Le strategie di esplorazione sono ottimizzate per questo scenario:
+- obiettivo primario: coprire rapidamente le celle candidate ai pacchi
+- fallback: revisita periodica di celle non osservate da tempo (stale)
+- coordinamento: scambio via comunicazione di celle gia' scansionate
 
 ## Metriche di valutazione
 
