@@ -20,7 +20,6 @@ import random
 from typing import Optional, Set, Tuple, TYPE_CHECKING
 
 from src.agents.strategies.base import ExplorationStrategy
-from src.environment.grid import CellType
 
 if TYPE_CHECKING:
     from src.agents.agent import Agent
@@ -77,49 +76,45 @@ class LevyFlightStrategy(ExplorationStrategy):
 
     def _local_density(self, agent: "Agent", env: "Environment") -> float:
         """
-        Fraction di celle EMPTY nel raggio di visibilità già in local_map.
-        Un valore di 1.0 significa che tutto il vicinato visibile è già noto.
+        Frazione di celle nel raggio di visibilità che l'agente conosce gia'.
+
+        Nota: usa solo local_map (conoscenza locale/comunicata) e non legge
+        direttamente i tipi cella globali per evitare leakage informativo.
         """
         r, c = agent.pos
         radius = agent.visibility_radius
-        total = explored = 0
+        size = env.grid.size
+        local_map = agent.local_map
+        total = known = 0
         for dr in range(-radius, radius + 1):
             for dc in range(-radius, radius + 1):
                 if abs(dr) + abs(dc) > radius:
                     continue
                 nr, nc = r + dr, c + dc
-                if not env.grid.in_bounds(nr, nc):
-                    continue
-                if env.grid.cell(nr, nc) == CellType.EMPTY:
+                if 0 <= nr < size and 0 <= nc < size:
                     total += 1
-                    if (nr, nc) in agent.local_map:
-                        explored += 1
-        return explored / total if total > 0 else 1.0
+                    if (nr, nc) in local_map:
+                        known += 1
+        return known / total if total > 0 else 1.0
 
     def _long_jump_target(
         self, agent: "Agent", env: "Environment"
     ) -> Optional[Tuple[int, int]]:
         """
-        Sceglie casualmente una cella EMPTY inesplorata a distanza Manhattan
-        >= _JUMP_MIN_DIST. Se non ne esistono, ritorna qualsiasi inesplorata.
+        Sceglie una frontiera locale distante a sufficienza.
+
+        Nota: evita l'uso di celle EMPTY globali per non introdurre
+        conoscenza fuori raggio nell'agente.
         """
-        far: list = []
-        near: list = []
         r, c = agent.pos
-        for tr in range(env.grid.size):
-            for tc in range(env.grid.size):
-                if env.grid.cell(tr, tc) != CellType.EMPTY:
-                    continue
-                if (tr, tc) in agent.local_map:
-                    continue
-                dist = abs(tr - r) + abs(tc - c)
-                if dist >= self._JUMP_MIN_DIST:
-                    far.append((tr, tc))
-                else:
-                    near.append((tr, tc))
+        min_dist = self._JUMP_MIN_DIST
+        frontiers = self._find_frontiers(agent, env)
+        if not frontiers:
+            return None
+        far = [p for p in frontiers if abs(p[0] - r) + abs(p[1] - c) >= min_dist]
         if far:
             return random.choice(far)
-        return random.choice(near) if near else None
+        return random.choice(list(frontiers))
 
 
 # Alias per compatibilità con il codice esistente

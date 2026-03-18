@@ -33,6 +33,14 @@ class Grid:
     def __init__(self, data: List[List[int]], size: int) -> None:
         self.data: List[List[int]] = data
         self.size: int = size
+        # Pre-calcolo costante: la griglia non cambia mai durante la simulazione
+        _EMPTY = CellType.EMPTY
+        self.empty_cells: frozenset = frozenset(
+            (r, c)
+            for r in range(size)
+            for c in range(size)
+            if data[r][c] == _EMPTY
+        )
 
     # ------------------------------------------------------------------
     # Accesso celle

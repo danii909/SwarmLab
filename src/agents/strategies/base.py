@@ -1,11 +1,7 @@
-"""
-Interfaccia astratta per le strategie di esplorazione.
-"""
-
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
-from typing import Optional, Set, Tuple, TYPE_CHECKING
+from typing import Dict, Optional, Set, Tuple, TYPE_CHECKING
 
 from src.environment.grid import CellType, DIRECTIONS
 
@@ -31,6 +27,10 @@ class ExplorationStrategy(ABC):
       - pathfinder          — per calcolare percorsi
       - occupied            — posizioni occupate da altri agenti (anti-collisione)
     """
+
+    def __init__(self) -> None:
+        # Cache frontiere: {agent_id: (frontier_set, map_size_al_calcolo)}
+        self._frontier_cache: Dict[int, Tuple[Set, int]] = {}
 
     @abstractmethod
     def next_move(
@@ -86,17 +86,27 @@ class ExplorationStrategy(ABC):
     ) -> Set[Tuple[int, int]]:
         """
         Celle EMPTY già esplorate nella mappa locale che hanno almeno
-        un vicino non ancora esplorato. Usata da più strategie.
+        un vicino non ancora esplorato. Cached per agent_id finché
+        local_map non cresce (ricalcolo solo quando si esplora).
         """
+        map_size = len(agent.local_map)
+        cached = self._frontier_cache.get(agent.id)
+        if cached is not None and cached[1] == map_size:
+            return cached[0]
+
         frontiers: Set[Tuple[int, int]] = set()
-        for (r, c), cell_type in agent.local_map.items():
+        local_map = agent.local_map
+        in_bounds = env.grid.in_bounds
+        for (r, c), cell_type in local_map.items():
             if cell_type != CellType.EMPTY:
                 continue
             for dr, dc in DIRECTIONS:
                 nr, nc = r + dr, c + dc
-                if (nr, nc) not in agent.local_map and env.grid.in_bounds(nr, nc):
+                if (nr, nc) not in local_map and in_bounds(nr, nc):
                     frontiers.add((r, c))
                     break
+
+        self._frontier_cache[agent.id] = (frontiers, map_size)
         return frontiers
 
     def _unexplored_empty(
@@ -105,15 +115,12 @@ class ExplorationStrategy(ABC):
         env: "Environment",
     ) -> Set[Tuple[int, int]]:
         """
-        Celle EMPTY globali non ancora presenti nella mappa locale.
-        Helper mantenuto anche per compatibilita' con strategie legacy.
+        Compat helper: restituisce le frontiere locali non ancora coperte.
+
+        Nota: non usa conoscenza globale della mappa per evitare leakage
+        informativo fuori dal raggio di visione/comunicazione.
         """
-        return {
-            (r, c)
-            for r in range(env.grid.size)
-            for c in range(env.grid.size)
-            if env.grid.cell(r, c) == CellType.EMPTY and (r, c) not in agent.local_map
-        }
+        return self._find_frontiers(agent, env)
 
     @property
     def name(self) -> str:

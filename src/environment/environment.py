@@ -67,6 +67,11 @@ class Environment:
         self._initial_total: int = len(self._objects)
         self.delivered: int = 0
         self.tick: int = 0
+        # Pre-calcolo costante: porte non cambiano mai durante la simulazione
+        self.door_cells: frozenset = frozenset(
+            wh.entrance for wh in warehouses
+        ) | frozenset(wh.exit for wh in warehouses)
+        self.entrance_cells: frozenset = frozenset(wh.entrance for wh in warehouses)
 
     # ------------------------------------------------------------------
     # Caricamento da file JSON

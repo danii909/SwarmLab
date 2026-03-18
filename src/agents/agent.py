@@ -229,8 +229,7 @@ class Agent:
             if self._exit_target:
                 # Blocca le celle ENTRANCE: l'agente deve uscire dalla porta rossa,
                 # non riattraversare quella verde.
-                entrance_cells = {wh.entrance for wh in env.warehouses}
-                blocked = (occupied | entrance_cells) - {self.pos}
+                blocked = (occupied | env.entrance_cells) - {self.pos}
                 step = pathfinder.next_step(
                     self.pos, self._exit_target, blocked, allow_warehouse=True
                 )
@@ -241,8 +240,7 @@ class Agent:
         # Esplorazione: aggiunge le celle ENTRANCE/EXIT al set delle posizioni
         # occupate così nessuna strategia ci camminerà sopra per errore
         # (es. random_walk filtra già `occupied` dai vicini).
-        door_cells = {wh.entrance for wh in env.warehouses} | {wh.exit for wh in env.warehouses}
-        return self.strategy.next_move(self, env, pathfinder, occupied | door_cells)
+        return self.strategy.next_move(self, env, pathfinder, occupied | env.door_cells)
 
     # ------------------------------------------------------------------
     # Rappresentazione
