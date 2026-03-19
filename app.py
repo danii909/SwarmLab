@@ -1023,8 +1023,8 @@ with tab_sim:
 # ===================================================================
 
 with tab_bench:
-    st.subheader("Benchmark preset casuali")
-    st.caption("Genera configurazioni casuali per il team di agenti variando strategia, visione e comunicazione.")
+    #st.subheader("Benchmark preset casuali")
+    #st.caption("Genera configurazioni casuali per il team di agenti variando strategia, visione e comunicazione.")
 
     # ---------------------------
     # Layout principale
