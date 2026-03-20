@@ -19,6 +19,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import streamlit as st
+import matplotlib.pyplot as plt
 
 # ---------------------------------------------------------------------------
 # Configurazione pagina
@@ -92,6 +93,30 @@ _STREAMLIT_GRID = (100, 100, 100)
 _STREAMLIT_COMM_FILL = (30, 144, 255, 50)    # blu (tipo dodger blue, leggero)
 _STREAMLIT_COMM_BORDER = (0, 0, 139, 200)    # blu scuro deciso
 _STREAMLIT_COMM_LINE = (0, 0, 139, 200)   # stesso blu del fill, più visibile
+
+
+def _build_delivery_curve(history, max_ticks: int) -> list[float]:
+    """Costruisce la curva cumulativa consegne (per tick) con lunghezza fissa."""
+    max_ticks = max(1, int(max_ticks))
+    curve = np.zeros(max_ticks, dtype=float)
+    for snap in history or []:
+        tick = int(getattr(snap, "tick", 0))
+        delivered = float(getattr(snap, "delivered", 0.0))
+        if tick <= 0:
+            continue
+        idx = min(tick, max_ticks) - 1
+        curve[idx] = max(curve[idx], delivered)
+    curve = np.maximum.accumulate(curve)
+    return curve.tolist()
+
+
+def _style_dark_chart(ax):
+    """Applica uno stile dark uniforme ai grafici benchmark."""
+    ax.set_facecolor("#0e1117")
+    for spine in ax.spines.values():
+        spine.set_color("#444")
+    ax.tick_params(colors="#aaa", labelsize=8)
+    ax.grid(axis="y", color="#2a2a2a", linewidth=0.7, alpha=0.6)
 
 
 # ---------------------------------------------------------------------------
@@ -1185,6 +1210,7 @@ with tab_bench:
 
         all_results = []
         run_rows = []
+        preset_curves = {}
         t0_bench = time.perf_counter()
         total_jobs = max(1, actual_n * bench_runs_per_preset)
         job_done = 0
@@ -1216,6 +1242,7 @@ with tab_bench:
             avg_vis = np.mean([vis_r for _, vis_r, _ in preset])
             avg_comm = np.mean([comm_r for _, _, comm_r in preset])
             run_rows_this_preset = []
+            curves_this_preset = []
 
             for run_i in range(bench_runs_per_preset):
                 if seed >= 0:
@@ -1241,6 +1268,7 @@ with tab_bench:
                 elapsed_sim = time.perf_counter() - t0_sim
 
                 s = sim.metrics.summary()
+                curves_this_preset.append(_build_delivery_curve(sim.metrics.history, bench_max_ticks))
 
                 row = {
                     "preset_name": preset_name,
@@ -1277,6 +1305,7 @@ with tab_bench:
                 )
 
             df_p = pd.DataFrame(run_rows_this_preset)
+            preset_curves[preset_name] = curves_this_preset
 
             all_results.append({
                 "preset_name": preset_name,
@@ -1312,17 +1341,26 @@ with tab_bench:
         st.session_state["bench_results"] = {
             "all_results": all_results,
             "run_rows": run_rows,
+            "preset_curves": preset_curves,
             "actual_n": actual_n,
             "total_bench_time": total_bench_time,
             "bench_strategy_ids": bench_strategy_ids,
             "vis_values": vis_values,
+            "bench_max_ticks": bench_max_ticks,
         }
 
     if "bench_results" in st.session_state:
         _br = st.session_state["bench_results"]
         all_results = _br["all_results"]
+        preset_curves = _br.get("preset_curves", {})
 
         df = pd.DataFrame(all_results)
+        bench_max_ticks = int(
+            _br.get(
+                "bench_max_ticks",
+                max(1, int(df["total_ticks"].max())) if not df.empty else 1,
+            )
+        )
 
         st.divider()
         st.subheader("📊 Risultati benchmark")
@@ -1369,7 +1407,100 @@ with tab_bench:
         })
         st.dataframe(df_rank_display, width='stretch', hide_index=True)
 
-        total_obj = df["total_objects"].iloc[0]
+        st.markdown("#### 📈 Grafici benchmark")
+
+        _fig_w = min(max(10, len(df_rank) * 0.35), 38)
+        x_tick_labels = df_rank["preset_name"].tolist()
+        y_ticks = df_rank["total_ticks"].values
+        dominant_colors = [
+            STRATEGY_COLORS.get(s, "#888") for s in df_rank["dominant_strategy"].tolist()
+        ]
+
+        fig_ticks, ax_ticks = plt.subplots(figsize=(_fig_w, 4.6), facecolor="#0e1117")
+        _style_dark_chart(ax_ticks)
+        ax_ticks.bar(range(len(df_rank)), y_ticks, color=dominant_colors, edgecolor="#444", linewidth=0.5)
+        ax_ticks.axhline(
+            y=float(np.mean(y_ticks)),
+            color="#FFD700",
+            linestyle="--",
+            linewidth=1.5,
+            label=f"Media: {float(np.mean(y_ticks)):.1f}",
+        )
+        ax_ticks.set_title("Tick per preset")
+        ax_ticks.set_xlabel("Preset")
+        ax_ticks.set_ylabel("Tick")
+        if len(df_rank) <= 60:
+            ax_ticks.set_xticks(range(len(df_rank)))
+            ax_ticks.set_xticklabels(x_tick_labels, rotation=35, ha="right", color="#aaa", fontsize=7)
+        else:
+            ax_ticks.set_xticks([])
+        ax_ticks.legend(fontsize=8, facecolor="#1a1a2e", edgecolor="#555", labelcolor="white")
+        fig_ticks.tight_layout()
+        st.pyplot(fig_ticks)
+        plt.close(fig_ticks)
+
+        fig_obj, ax_obj = plt.subplots(figsize=(_fig_w, 4.6), facecolor="#0e1117")
+        _style_dark_chart(ax_obj)
+        y_objects = df_rank["objects_delivered"].values
+        total_obj = int(df["total_objects"].iloc[0])
+        colors_obj = [
+            "#55A868" if d >= total_obj else "#DD8452" if d >= total_obj * 0.5 else "#C44E52"
+            for d in y_objects
+        ]
+        ax_obj.bar(range(len(df_rank)), y_objects, color=colors_obj, edgecolor="#444", linewidth=0.5)
+        ax_obj.axhline(
+            y=total_obj,
+            color="#FFD700",
+            linestyle=":",
+            linewidth=1.2,
+            label=f"Totale oggetti: {total_obj}",
+        )
+        ax_obj.set_title("Oggetti consegnati per preset")
+        ax_obj.set_xlabel("Preset")
+        ax_obj.set_ylabel("Oggetti consegnati")
+        if len(df_rank) <= 60:
+            ax_obj.set_xticks(range(len(df_rank)))
+            ax_obj.set_xticklabels(x_tick_labels, rotation=35, ha="right", color="#aaa", fontsize=7)
+        else:
+            ax_obj.set_xticks([])
+        ax_obj.legend(fontsize=8, facecolor="#1a1a2e", edgecolor="#555", labelcolor="white")
+        fig_obj.tight_layout()
+        st.pyplot(fig_obj)
+        plt.close(fig_obj)
+
+        st.markdown("#### Curve cumulative deliveries")
+        if preset_curves:
+            fig_curves, ax_curves = plt.subplots(figsize=(10, 5), facecolor="#0e1117")
+            _style_dark_chart(ax_curves)
+            x_ticks = np.arange(1, bench_max_ticks + 1)
+            top_presets = df_rank.head(min(6, len(df_rank)))["preset_name"].tolist()
+
+            for preset_name in top_presets:
+                curves = preset_curves.get(preset_name, [])
+                if not curves:
+                    continue
+                curves_arr = np.array(curves, dtype=float)
+                if curves_arr.ndim == 1:
+                    curves_arr = curves_arr.reshape(1, -1)
+                p25 = np.percentile(curves_arr, 25, axis=0)
+                p50 = np.percentile(curves_arr, 50, axis=0)
+                p75 = np.percentile(curves_arr, 75, axis=0)
+
+                strat = df_rank.loc[df_rank["preset_name"] == preset_name, "dominant_strategy"].iloc[0]
+                color = STRATEGY_COLORS.get(strat, "#888")
+                ax_curves.plot(x_ticks, p50, linewidth=2, color=color, label=preset_name)
+                ax_curves.fill_between(x_ticks, p25, p75, color=color, alpha=0.15)
+
+            ax_curves.set_title("Curve cumulative deliveries (mediana + banda 25-75)")
+            ax_curves.set_xlabel("Tick")
+            ax_curves.set_ylabel("Oggetti consegnati")
+            ax_curves.set_ylim(bottom=0)
+            ax_curves.legend(fontsize=8, facecolor="#1a1a2e", edgecolor="#555", labelcolor="white")
+            fig_curves.tight_layout()
+            st.pyplot(fig_curves)
+            plt.close(fig_curves)
+        else:
+            st.info("Curve cumulative deliveries non disponibili: esegui un nuovo benchmark.")
 
         st.markdown("#### ⬇ Preset scaricabili (Top 5)")
         if len(df_rank) >= 1:
