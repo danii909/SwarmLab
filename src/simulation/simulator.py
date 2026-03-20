@@ -92,9 +92,14 @@ class Simulator:
 
         self.pathfinder = Pathfinder(env.grid)
         self.metrics = Metrics()
-        self.metrics.initialize(self.agents, env.total_objects)
+        self.metrics.initialize(
+            self.agents,
+            env.total_objects,
+            empty_cells=set(env.grid.empty_cells()),
+        )
 
         self._tick: int = 0
+        self._agent_pickup_tick: Dict[int, int] = {}
 
     # ------------------------------------------------------------------
     # Esecuzione
@@ -134,7 +139,7 @@ class Simulator:
                             agent.known_agents[other.id] = (other.pos, self._tick)
 
                 # 2. Comunicazione (propaga anche known_agents transitivamente)
-                communicate_agents(self.agents)
+                communicating_pairs = communicate_agents(self.agents)
 
                 # 3. Pianificazione mosse: ogni agente usa solo le posizioni
                 #    che conosce (visione diretta o comunicazione), con scadenza
@@ -152,7 +157,7 @@ class Simulator:
                         )
 
                 # 4. Applica mosse (no-overlap: risolvi conflitti)
-                self._apply_moves(moves)
+                move_stats = self._apply_moves(moves)
 
                 # 5. Raccolta / consegna oggetti
                 for agent in self.agents:
@@ -164,9 +169,14 @@ class Simulator:
                         if self.env.grid.cell(agent.row, agent.col) == CellType.EXIT:
                             agent.state = AgentState.EXPLORING
                     elif not agent.carrying_object:
-                        agent.pick_up(self.env)
+                        picked = agent.pick_up(self.env)
+                        if picked and agent.id not in self._agent_pickup_tick:
+                            self._agent_pickup_tick[agent.id] = self._tick
                     else:
-                        agent.deliver(self.env)
+                        delivered = agent.deliver(self.env)
+                        if delivered:
+                            start_tick = self._agent_pickup_tick.pop(agent.id, self._tick)
+                            self.metrics.record_delivery_trip_time(self._tick - start_tick)
 
                 # 6. Visualizzazione (se attiva)
                 if self.visualizer is not None:
@@ -179,7 +189,15 @@ class Simulator:
                 # 7. Metriche
                 log_this_tick = (self._tick % self.log_every == 0)
                 self.metrics.record_tick(
-                    self._tick, self.agents, self.env, log=log_this_tick
+                    self._tick,
+                    self.agents,
+                    self.env,
+                    visible_by_agent=visible_by_agent,
+                    communicating_pairs=communicating_pairs,
+                    move_requests=move_stats["move_requests"],
+                    moves_executed=move_stats["moves_executed"],
+                    conflicts=move_stats["conflicts"],
+                    log=log_this_tick,
                 )
 
                 # 8. Log verboso
@@ -238,7 +256,7 @@ class Simulator:
                             agent.known_agents[other.id] = (other.pos, self._tick)
 
                 # 2. Comunicazione
-                communicate_agents(self.agents)
+                communicating_pairs = communicate_agents(self.agents)
 
                 # 3. Pianificazione mosse
                 _MAX_AGENT_INFO_AGE = 5
@@ -255,7 +273,7 @@ class Simulator:
                         )
 
                 # 4. Applica mosse
-                self._apply_moves(moves)
+                move_stats = self._apply_moves(moves)
 
                 # 5. Raccolta / consegna oggetti
                 for agent in self.agents:
@@ -265,14 +283,27 @@ class Simulator:
                         if self.env.grid.cell(agent.row, agent.col) == CellType.EXIT:
                             agent.state = AgentState.EXPLORING
                     elif not agent.carrying_object:
-                        agent.pick_up(self.env)
+                        picked = agent.pick_up(self.env)
+                        if picked and agent.id not in self._agent_pickup_tick:
+                            self._agent_pickup_tick[agent.id] = self._tick
                     else:
-                        agent.deliver(self.env)
+                        delivered = agent.deliver(self.env)
+                        if delivered:
+                            start_tick = self._agent_pickup_tick.pop(agent.id, self._tick)
+                            self.metrics.record_delivery_trip_time(self._tick - start_tick)
 
                 # 6. Metriche
                 log_this_tick = (self._tick % self.log_every == 0)
                 self.metrics.record_tick(
-                    self._tick, self.agents, self.env, log=log_this_tick
+                    self._tick,
+                    self.agents,
+                    self.env,
+                    visible_by_agent=visible_by_agent,
+                    communicating_pairs=communicating_pairs,
+                    move_requests=move_stats["move_requests"],
+                    moves_executed=move_stats["moves_executed"],
+                    conflicts=move_stats["conflicts"],
+                    log=log_this_tick,
                 )
 
                 # 7. Cedi il controllo all'UI
@@ -292,7 +323,7 @@ class Simulator:
 
     def _apply_moves(
         self, moves: Dict[int, Optional[Tuple[int, int]]]
-    ) -> None:
+    ) -> Dict[str, int]:
         """
         Applica le mosse evitando sovrapposizioni (progetto di gruppo).
 
@@ -327,10 +358,12 @@ class Simulator:
 
         # Risolvi conflitti tra agenti in movimento verso la stessa cella
         allowed: Set[int] = set()
+        conflict_count = 0
         for dest, agent_ids in dest_map.items():
             if len(agent_ids) == 1:
                 allowed.add(agent_ids[0])
             else:
+                conflict_count += len(agent_ids) - 1
                 # Priorità a chi trasporta; a parità, ID minore.
                 carrying_ids = [aid for aid in agent_ids if agents_by_id[aid].carrying_object]
                 if carrying_ids:
@@ -342,3 +375,11 @@ class Simulator:
         for agent_id, dest in moves.items():
             if dest is not None and agent_id in allowed:
                 agents_by_id[agent_id].move_to(*dest)
+
+        move_requests = sum(1 for a in self.agents if a.is_active and moves.get(a.id) is not None)
+        moves_executed = sum(1 for aid in allowed if moves.get(aid) is not None)
+        return {
+            "move_requests": move_requests,
+            "moves_executed": moves_executed,
+            "conflicts": conflict_count,
+        }
