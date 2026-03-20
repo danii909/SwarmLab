@@ -115,7 +115,9 @@ def _style_dark_chart(ax):
     ax.set_facecolor("#0e1117")
     for spine in ax.spines.values():
         spine.set_color("#444")
-    ax.tick_params(colors="#aaa", labelsize=8)
+    ax.tick_params(colors="white", labelsize=8)
+    ax.xaxis.label.set_color("white")
+    ax.yaxis.label.set_color("white")
     ax.grid(axis="y", color="#2a2a2a", linewidth=0.7, alpha=0.6)
 
 
@@ -1030,8 +1032,8 @@ with tab_bench:
                 ]
                 bench_strategies = st.multiselect(
                     "Strategie possibili",
-                    options=[f"{sid+1} — {name}" for sid, name in benchmark_strategy_entries],
-                    default=[f"{sid+1} — {name}" for sid, name in benchmark_strategy_entries],
+                    options=[f"{sid} — {name}" for sid, name in benchmark_strategy_entries],
+                    default=[f"{sid} — {name}" for sid, name in benchmark_strategy_entries],
                     key="bench_strats",
                     placeholder="Seleziona almeno una strategia"
                 )
@@ -1144,8 +1146,6 @@ with tab_bench:
                 help="Numero di configurazioni casuali da eseguire senza duplicati, fin dove possibile."
             )
 
-            bench_runs_per_preset = 1
-
             st.markdown("")
 
             bench_clicked = st.button(
@@ -1160,7 +1160,7 @@ with tab_bench:
                 st.caption(
                     f"Strategie selezionate: {', '.join(selected_names)} · "
                     f"Visione: {vis_values} · Comunicazione: {comm_values} · "
-                    "Run/preset: 1"
+                    "Run/preset: singola"
                 )
             else:
                 st.caption("Nessuna strategia selezionata.")
@@ -1209,10 +1209,9 @@ with tab_bench:
         bench_status = st.empty()
 
         all_results = []
-        run_rows = []
         preset_curves = {}
         t0_bench = time.perf_counter()
-        total_jobs = max(1, actual_n * bench_runs_per_preset)
+        total_jobs = max(1, actual_n)
         job_done = 0
 
         for sim_i, preset in enumerate(generated_presets):
@@ -1241,71 +1240,37 @@ with tab_bench:
 
             avg_vis = np.mean([vis_r for _, vis_r, _ in preset])
             avg_comm = np.mean([comm_r for _, _, comm_r in preset])
-            run_rows_this_preset = []
-            curves_this_preset = []
+            if seed >= 0:
+                run_seed = seed + (sim_i * 1000)
+            else:
+                run_seed = rng.randint(0, 10_000_000)
 
-            for run_i in range(bench_runs_per_preset):
-                if seed >= 0:
-                    run_seed = seed + (sim_i * 1000) + run_i
-                else:
-                    run_seed = rng.randint(0, 10_000_000)
+            env_obj = Environment.from_json(instance_path)
+            built_agents = _build_agents(agent_cfgs, bench_num_agents)
 
-                env_obj = Environment.from_json(instance_path)
-                built_agents = _build_agents(agent_cfgs, bench_num_agents)
+            sim = Simulator(
+                env=env_obj,
+                agents=built_agents,
+                max_ticks=bench_max_ticks,
+                seed=run_seed,
+                verbose=False,
+                log_every=1,
+            )
 
-                sim = Simulator(
-                    env=env_obj,
-                    agents=built_agents,
-                    max_ticks=bench_max_ticks,
-                    seed=run_seed,
-                    verbose=False,
-                    log_every=1,
-                )
+            t0_sim = time.perf_counter()
+            for _ in sim.step_gen():
+                pass
+            elapsed_sim = time.perf_counter() - t0_sim
 
-                t0_sim = time.perf_counter()
-                for _ in sim.step_gen():
-                    pass
-                elapsed_sim = time.perf_counter() - t0_sim
+            s = sim.metrics.summary()
+            preset_curves[preset_name] = _build_delivery_curve(sim.metrics.history, bench_max_ticks)
 
-                s = sim.metrics.summary()
-                curves_this_preset.append(_build_delivery_curve(sim.metrics.history, bench_max_ticks))
-
-                row = {
-                    "preset_name": preset_name,
-                    "run_id": run_i + 1,
-                    "seed": run_seed,
-                    "config_str": config_str,
-                    "team_desc": team_desc,
-                    "dominant_strategy": max(strat_counts, key=strat_counts.get),
-                    "avg_vis": round(avg_vis, 2),
-                    "avg_comm": round(avg_comm, 2),
-                    "objects_delivered": s["objects_delivered"],
-                    "total_objects": s["total_objects"],
-                    "delivery_rate": s["delivery_rate"],
-                    "completion_rate": s["completion_rate"],
-                    "completed": int(bool(s["completed"])),
-                    "completion_time": s["completion_time"],
-                    "total_ticks": s["total_ticks"],
-                    "average_energy": s["average_energy_consumed"],
-                    "first_pickup_tick": s["first_pickup_tick"],
-                    "first_delivery_tick": s["first_delivery_tick"],
-                    "cpu_time": round(elapsed_sim, 4),
-                }
-                run_rows.append(row)
-                run_rows_this_preset.append(row)
-
-                job_done += 1
-                pct = job_done / total_jobs
-                bench_progress.progress(
-                    pct,
-                    text=(
-                        f"{pct * 100:.0f}% - Preset {sim_i + 1}/{actual_n} "
-                        f"Run {run_i + 1}/{bench_runs_per_preset}"
-                    ),
-                )
-
-            df_p = pd.DataFrame(run_rows_this_preset)
-            preset_curves[preset_name] = curves_this_preset
+            job_done += 1
+            pct = job_done / total_jobs
+            bench_progress.progress(
+                pct,
+                text=f"{pct * 100:.0f}% - Preset {sim_i + 1}/{actual_n}",
+            )
 
             all_results.append({
                 "preset_name": preset_name,
@@ -1316,22 +1281,20 @@ with tab_bench:
                 "dominant_strategy": max(strat_counts, key=strat_counts.get),
                 "avg_vis": round(avg_vis, 2),
                 "avg_comm": round(avg_comm, 2),
-                "objects_delivered": round(float(df_p["objects_delivered"].mean()), 3),
-                "total_objects": int(df_p["total_objects"].iloc[0]),
-                "delivery_rate": round(float(df_p["delivery_rate"].mean()), 4),
-                "total_ticks": round(float(df_p["total_ticks"].mean()), 3),
-                "average_energy": round(float(df_p["average_energy"].mean()), 3),
-                "first_pickup_tick": round(float(df_p["first_pickup_tick"].dropna().mean()), 3)
-                if df_p["first_pickup_tick"].notna().any() else np.nan,
-                "first_delivery_tick": round(float(df_p["first_delivery_tick"].dropna().mean()), 3)
-                if df_p["first_delivery_tick"].notna().any() else np.nan,
-                "cpu_time": round(float(df_p["cpu_time"].sum()), 3),
+                "objects_delivered": s["objects_delivered"],
+                "total_objects": s["total_objects"],
+                "delivery_rate": round(float(s["delivery_rate"]), 4),
+                "total_ticks": s["total_ticks"],
+                "average_energy": round(float(s["average_energy_consumed"]), 3),
+                "first_pickup_tick": s["first_pickup_tick"],
+                "first_delivery_tick": s["first_delivery_tick"],
+                "cpu_time": round(float(elapsed_sim), 3),
             })
 
             bench_status.info(
                 f"{preset_name} · {team_desc} · "
-                f"completion {df_p['completion_rate'].mean()*100:.1f}% · "
-                f"Tick {df_p['total_ticks'].mean():.1f}"
+                f"completion {s['completion_rate']*100:.1f}% · "
+                f"Tick {s['total_ticks']:.1f}"
             )
 
         total_bench_time = time.perf_counter() - t0_bench
@@ -1340,7 +1303,6 @@ with tab_bench:
 
         st.session_state["bench_results"] = {
             "all_results": all_results,
-            "run_rows": run_rows,
             "preset_curves": preset_curves,
             "actual_n": actual_n,
             "total_bench_time": total_bench_time,
@@ -1426,12 +1388,12 @@ with tab_bench:
             linewidth=1.5,
             label=f"Media: {float(np.mean(y_ticks)):.1f}",
         )
-        ax_ticks.set_title("Tick per preset")
-        ax_ticks.set_xlabel("Preset")
-        ax_ticks.set_ylabel("Tick")
+        ax_ticks.set_title("Tick per preset", color="white")
+        ax_ticks.set_xlabel("Preset", color="white")
+        ax_ticks.set_ylabel("Tick", color="white")
         if len(df_rank) <= 60:
             ax_ticks.set_xticks(range(len(df_rank)))
-            ax_ticks.set_xticklabels(x_tick_labels, rotation=35, ha="right", color="#aaa", fontsize=7)
+            ax_ticks.set_xticklabels(x_tick_labels, rotation=35, ha="right", color="white", fontsize=7)
         else:
             ax_ticks.set_xticks([])
         ax_ticks.legend(fontsize=8, facecolor="#1a1a2e", edgecolor="#555", labelcolor="white")
@@ -1455,12 +1417,12 @@ with tab_bench:
             linewidth=1.2,
             label=f"Totale oggetti: {total_obj}",
         )
-        ax_obj.set_title("Oggetti consegnati per preset")
-        ax_obj.set_xlabel("Preset")
-        ax_obj.set_ylabel("Oggetti consegnati")
+        ax_obj.set_title("Oggetti consegnati per preset", color="white")
+        ax_obj.set_xlabel("Preset", color="white")
+        ax_obj.set_ylabel("Oggetti consegnati", color="white")
         if len(df_rank) <= 60:
             ax_obj.set_xticks(range(len(df_rank)))
-            ax_obj.set_xticklabels(x_tick_labels, rotation=35, ha="right", color="#aaa", fontsize=7)
+            ax_obj.set_xticklabels(x_tick_labels, rotation=35, ha="right", color="white", fontsize=7)
         else:
             ax_obj.set_xticks([])
         ax_obj.legend(fontsize=8, facecolor="#1a1a2e", edgecolor="#555", labelcolor="white")
@@ -1469,36 +1431,48 @@ with tab_bench:
         plt.close(fig_obj)
 
         st.markdown("#### Curve cumulative deliveries")
+        curves_max = max(1, len(df_rank))
+        curves_to_show = st.slider(
+            "N. curve",
+            min_value=1,
+            max_value=curves_max,
+            value=min(10, curves_max),
+            key="bench_curves_to_show",
+        )
         if preset_curves:
             fig_curves, ax_curves = plt.subplots(figsize=(10, 5), facecolor="#0e1117")
             _style_dark_chart(ax_curves)
             x_ticks = np.arange(1, bench_max_ticks + 1)
-            top_presets = df_rank.head(min(6, len(df_rank)))["preset_name"].tolist()
+            preset_names = df_rank.head(min(curves_to_show, len(df_rank)))["preset_name"].tolist()
+            palette = plt.get_cmap("tab20")
+            preset_colors = {
+                pname: palette(i % 20)
+                for i, pname in enumerate(preset_names)
+            }
 
-            for preset_name in top_presets:
-                curves = preset_curves.get(preset_name, [])
-                if not curves:
+            for preset_name in preset_names:
+                curve = preset_curves.get(preset_name)
+                if curve is None:
                     continue
-                curves_arr = np.array(curves, dtype=float)
-                if curves_arr.ndim == 1:
-                    curves_arr = curves_arr.reshape(1, -1)
-                p25 = np.percentile(curves_arr, 25, axis=0)
-                p50 = np.percentile(curves_arr, 50, axis=0)
-                p75 = np.percentile(curves_arr, 75, axis=0)
+                curve_arr = np.array(curve, dtype=float)
+                # Compatibilita con cache vecchia (lista di curve): usa la prima.
+                if curve_arr.ndim > 1:
+                    curve_arr = curve_arr[0]
 
-                strat = df_rank.loc[df_rank["preset_name"] == preset_name, "dominant_strategy"].iloc[0]
-                color = STRATEGY_COLORS.get(strat, "#888")
-                ax_curves.plot(x_ticks, p50, linewidth=2, color=color, label=preset_name)
-                ax_curves.fill_between(x_ticks, p25, p75, color=color, alpha=0.15)
+                color = preset_colors.get(preset_name, "#888")
+                ax_curves.plot(x_ticks, curve_arr, linewidth=2, color=color, label=preset_name)
 
-            ax_curves.set_title("Curve cumulative deliveries (mediana + banda 25-75)")
-            ax_curves.set_xlabel("Tick")
-            ax_curves.set_ylabel("Oggetti consegnati")
+            ax_curves.set_title("Curve cumulative deliveries", color="white")
+            ax_curves.set_xlabel("Tick", color="white")
+            ax_curves.set_ylabel("Oggetti consegnati", color="white")
             ax_curves.set_ylim(bottom=0)
-            ax_curves.legend(fontsize=8, facecolor="#1a1a2e", edgecolor="#555", labelcolor="white")
+            if len(preset_names) <= 20:
+                ax_curves.legend(fontsize=8, facecolor="#1a1a2e", edgecolor="#555", labelcolor="white")
             fig_curves.tight_layout()
             st.pyplot(fig_curves)
             plt.close(fig_curves)
+            if len(preset_names) > 10:
+                st.caption("Legenda nascosta automaticamente quando le curve mostrate sono piu di 10.")
         else:
             st.info("Curve cumulative deliveries non disponibili: esegui un nuovo benchmark.")
 
