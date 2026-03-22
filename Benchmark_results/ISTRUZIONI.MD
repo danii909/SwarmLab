@@ -10,15 +10,17 @@ A/
 │   │   └── summary.csv   
 │   ├── json/
 │   │   ├── metadata.json  # Metadati della simulazione
-│   │   ├── curves.json    # Curve dei risultati
+│   │   ├── curves.json    # Curve dei risultati (escluso da repository)
 │   │   └── results.json   # Dati dettagliati dei risultati
 │   ├── Top10_presets/     # I 10 migliori preset trovati
 │   │   ├── 1.Preset_23781.json
 │   │   ├── 2.Preset_23783.json
 │   │   └── ... (fino a 10)
 │   └── Images/
-│       ├── plot/          # Grafici e visualizzazioni
-│       └── tabelle/       # Tabelle in formato immagine
+│       ├── plot/          # Grafici e visualizzazioni (INCLUSI - da utilizzare nella relazione)
+│       └── tabelle/       # Tabelle in formato immagine (INCLUSI - da utilizzare nella relazione)
 │
 
-Nota bene, Top10_presets è presente solo nei test con 32k simulazioni.
+Nota bene:
+- Top10_presets è presente solo nei test con 32k simulazioni.
+- curves.json è escluso dal repository (file troppo grande > 100MB) ma disponibile localmente per generare i grafici.

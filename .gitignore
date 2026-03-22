@@ -5,3 +5,5 @@ __pycache__/
 deposito-txt/
 bench/
 Relazione/
+# Large benchmark result files - excluded due to 100MB GitHub limit
+**/curves.json
