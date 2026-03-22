@@ -18,16 +18,18 @@ if TYPE_CHECKING:
     from src.environment.environment import Environment
     from src.pathfinding.pathfinder import Pathfinder
 
-NUM_SECTORS_SIDE = 2   # divide la griglia in 2x2 = 4 settori + centro
+# Nota: la suddivisione è implementata come bande orizzontali
+# (una per agente) nella funzione _compute_sector.
 
 
 class SectorStrategy(ExplorationStrategy):
     """
-    Divide la griglia in settori; l'agente si specializza sul settore
-    corrispondente al proprio ID (mod numero settori).
+    Divide la griglia in bande orizzontali; l'agente si specializza
+    nella banda corrispondente al proprio ID (mod numero agenti).
     """
 
     def __init__(self, num_agents: int = 5) -> None:
+        super().__init__()
         self._num_agents = num_agents
         self._sector_cells: List[Tuple[int, int]] = []
         self._target_index: int = 0
@@ -40,51 +42,35 @@ class SectorStrategy(ExplorationStrategy):
         occupied: Set[Tuple[int, int]],
     ) -> Optional[Tuple[int, int]]:
 
-        # --- Se sta trasportando, vai all'ingresso più vicino ---
-        if agent.carrying_object:
-            target = env.nearest_warehouse_entrance(*agent.pos)
-            if target:
-                step = pathfinder.next_step(agent.pos, target, occupied - {agent.pos})
-                if step:
-                    return step
+        # --- Priorità universale: trasporto + oggetti noti ---
+        move = self._priority_move(agent, env, pathfinder, occupied)
+        if move:
+            return move
 
-        # --- Se conosce oggetti, vai al più vicino ---
-        if agent.known_objects:
-            nearest = min(
-                agent.known_objects,
-                key=lambda p: abs(p[0] - agent.row) + abs(p[1] - agent.col),
-            )
-            step = pathfinder.next_step(agent.pos, nearest, occupied - {agent.pos})
-            if step:
-                return step
-
-        # --- Inizializza o aggiorna settore se necessario ---
+        # --- Inizializza settore se necessario ---
         if not self._sector_cells:
             self._sector_cells = self._compute_sector(agent.id, env)
 
-        # Scegli la cella del settore non ancora esplorata più vicina
-        unexplored = [
-            c for c in self._sector_cells
-            if c not in agent.local_map
-        ]
-        if not unexplored:
-            # Settore esplorato: esplora l'intera griglia come frontier
-            unexplored = [
-                (r, c)
-                for r in range(env.grid.size)
-                for c in range(env.grid.size)
-                if (r, c) not in agent.local_map
-                and env.grid.cell(r, c) == CellType.EMPTY
-            ]
-
-        if not unexplored:
-            # Tutto esplorato
+        # Usa map globale nota, ma filtra per il proprio settore
+        targets = self._coverage_targets(agent, env)
+        sector_targets = [c for c in targets if c in self._sector_cells]
+        
+        if sector_targets:
+            # Prioritizza il proprio settore
+            best = min(
+                sector_targets,
+                key=lambda p: abs(p[0] - agent.row) + abs(p[1] - agent.col),
+            )
+        elif targets:
+            # Settore esaurito: esplora il resto della griglia
+            best = min(
+                targets,
+                key=lambda p: abs(p[0] - agent.row) + abs(p[1] - agent.col),
+            )
+        else:
+            # Tutto visitato
             return None
 
-        best = min(
-            unexplored,
-            key=lambda p: abs(p[0] - agent.row) + abs(p[1] - agent.col),
-        )
         return pathfinder.next_step(agent.pos, best, occupied - {agent.pos})
 
     # ------------------------------------------------------------------

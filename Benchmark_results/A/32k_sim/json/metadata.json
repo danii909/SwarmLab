@@ -1,0 +1,21 @@
+{
+  "format_version": "1.0",
+  "generated_at": 1774123748.9526272,
+  "generated_at_iso": "2026-03-21 21:09:08",
+  "seed": 0,
+  "instance_path": "",
+  "bench_max_ticks": 500,
+  "bench_strategy_ids": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "vis_values": [
+    2,
+    3
+  ],
+  "comm_values": null,
+  "actual_presets_run": 32768,
+  "total_bench_time_seconds": 11692.268609800001
+}

@@ -1,15 +1,9 @@
 __pycache__/
 *.py[cod]
-*.pyo
-.Python
-*.egg-info/
-.env
 .venv
-venv/
-env/
-results/*.json
-results/*.png
-!results/.gitkeep
-*.log
-.DS_Store
-Thumbs.db
+.pytest_cache/
+deposito-txt/
+bench/
+Relazione/
+# Large benchmark result files - excluded due to 100MB GitHub limit
+**/curves.json

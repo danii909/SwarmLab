@@ -81,15 +81,6 @@ python visualize_environment.py B.json B.png
 - **Numero di agenti:** 5
 - Ogni agente dovrebbe adottare una **strategia di ricerca diversa** per confrontare l'efficacia e favorire la copertura collaborativa della mappa.
 
-### Tempo di simulazione
-
-| Parametro | Valore |
-|---|---|
-| Definizione di tick | +1 ogni volta che **un** agente esegue una mossa |
-| Tick massimi | `500` oppure `750` (scegliere in base alla complessità dell'istanza) |
-
-> **Nota:** con 5 agenti e 500 tick, ogni agente esegue in media 100 mosse; con 750 tick ne esegue 150.
-
 ### Energia (batteria)
 
 | Parametro | Valore |

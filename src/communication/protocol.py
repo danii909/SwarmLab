@@ -64,3 +64,11 @@ def _exchange(a: "Agent", b: "Agent") -> None:
             merged_agents[agent_id] = entry
     a.known_agents = merged_agents.copy()
     b.known_agents = merged_agents.copy()
+
+    # Merge prenotazioni consegna note: tieni la voce osservata piu' recente.
+    merged_reservations = dict(a.known_reservations)
+    for agent_id, entry in b.known_reservations.items():
+        if agent_id not in merged_reservations or merged_reservations[agent_id][1] < entry[1]:
+            merged_reservations[agent_id] = entry
+    a.known_reservations = merged_reservations.copy()
+    b.known_reservations = merged_reservations.copy()

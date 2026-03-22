@@ -1,0 +1,101 @@
+preset_name,config_str,team_desc,avg_vis,avg_comm,objects_delivered,total_objects,delivery_rate,total_ticks,average_energy,cpu_time
+Preset 1,"A1:Sect(v1,c2) A2:Sect(v3,c1) A3:Sect(v3,c2) A4:Repu(v3,c1) A5:Smar(v2,c2)",1×Repulsion + 3×Sector + 1×Smart Random,2.4,1.6,10,10,1.0,81,78.0,0.141
+Preset 2,"A1:Fron(v2,c2) A2:Fron(v3,c2) A3:Sect(v1,c1) A4:Gree(v1,c2) A5:Gree(v2,c2)",2×Frontier + 2×Greedy + 1×Sector,1.8,1.8,10,10,1.0,138,135.6,0.363
+Preset 3,"A1:Fron(v1,c1) A2:Gree(v1,c2) A3:Fron(v2,c2) A4:Repu(v1,c1) A5:Fron(v1,c1)",3×Frontier + 1×Greedy + 1×Repulsion,1.2,1.4,10,10,1.0,151,148.4,0.295
+Preset 4,"A1:Fron(v2,c2) A2:Fron(v3,c2) A3:Smar(v1,c1) A4:Sect(v3,c1) A5:Repu(v3,c1)",2×Frontier + 1×Repulsion + 1×Sector + 1×Smart Random,2.4,1.4,10,10,1.0,110,108.0,0.144
+Preset 5,"A1:Gree(v2,c2) A2:Repu(v3,c1) A3:Repu(v2,c1) A4:Sect(v1,c1) A5:Repu(v1,c1)",1×Greedy + 3×Repulsion + 1×Sector,1.8,1.2,10,10,1.0,89,86.4,0.194
+Preset 6,"A1:Sect(v1,c1) A2:Smar(v1,c1) A3:Repu(v3,c1) A4:Repu(v2,c2) A5:Gree(v3,c1)",1×Greedy + 2×Repulsion + 1×Sector + 1×Smart Random,2.0,1.2,10,10,1.0,84,81.4,0.222
+Preset 7,"A1:Gree(v3,c2) A2:Fron(v2,c1) A3:Gree(v3,c1) A4:Smar(v2,c1) A5:Gree(v2,c2)",1×Frontier + 3×Greedy + 1×Smart Random,2.4,1.4,10,10,1.0,131,128.8,0.441
+Preset 8,"A1:Repu(v1,c2) A2:Fron(v3,c2) A3:Fron(v2,c2) A4:Sect(v3,c1) A5:Fron(v2,c1)",3×Frontier + 1×Repulsion + 1×Sector,2.2,1.6,10,10,1.0,74,72.0,0.098
+Preset 9,"A1:Repu(v1,c1) A2:Fron(v2,c2) A3:Gree(v2,c1) A4:Gree(v3,c1) A5:Fron(v2,c2)",2×Frontier + 2×Greedy + 1×Repulsion,2.0,1.4,10,10,1.0,81,78.2,0.246
+Preset 10,"A1:Repu(v2,c1) A2:Smar(v2,c1) A3:Gree(v2,c2) A4:Fron(v1,c2) A5:Gree(v3,c2)",1×Frontier + 2×Greedy + 1×Repulsion + 1×Smart Random,2.0,1.6,10,10,1.0,128,126.0,0.34
+Preset 11,"A1:Sect(v1,c1) A2:Fron(v2,c2) A3:Sect(v2,c2) A4:Sect(v2,c2) A5:Smar(v3,c2)",1×Frontier + 3×Sector + 1×Smart Random,2.0,1.8,10,10,1.0,130,128.0,0.208
+Preset 12,"A1:Gree(v1,c1) A2:Gree(v1,c1) A3:Fron(v3,c1) A4:Gree(v2,c1) A5:Repu(v3,c2)",1×Frontier + 3×Greedy + 1×Repulsion,2.0,1.2,10,10,1.0,158,155.2,0.405
+Preset 13,"A1:Gree(v1,c2) A2:Smar(v1,c1) A3:Fron(v1,c2) A4:Fron(v1,c2) A5:Repu(v2,c2)",2×Frontier + 1×Greedy + 1×Repulsion + 1×Smart Random,1.2,1.8,10,10,1.0,93,90.2,0.152
+Preset 14,"A1:Smar(v2,c1) A2:Repu(v2,c2) A3:Sect(v1,c2) A4:Repu(v3,c1) A5:Fron(v1,c2)",1×Frontier + 2×Repulsion + 1×Sector + 1×Smart Random,1.8,1.6,10,10,1.0,87,85.0,0.142
+Preset 15,"A1:Repu(v3,c2) A2:Repu(v3,c1) A3:Repu(v3,c1) A4:Repu(v3,c2) A5:Smar(v2,c2)",4×Repulsion + 1×Smart Random,2.8,1.6,10,10,1.0,112,109.6,0.218
+Preset 16,"A1:Repu(v2,c1) A2:Smar(v1,c2) A3:Gree(v3,c1) A4:Gree(v3,c2) A5:Smar(v2,c1)",2×Greedy + 1×Repulsion + 2×Smart Random,2.2,1.4,10,10,1.0,76,74.2,0.231
+Preset 17,"A1:Sect(v2,c2) A2:Repu(v2,c1) A3:Sect(v2,c1) A4:Repu(v1,c1) A5:Smar(v1,c2)",2×Repulsion + 2×Sector + 1×Smart Random,1.6,1.4,10,10,1.0,156,153.8,0.27
+Preset 18,"A1:Sect(v3,c2) A2:Fron(v3,c1) A3:Gree(v1,c2) A4:Sect(v2,c2) A5:Sect(v2,c1)",1×Frontier + 1×Greedy + 3×Sector,2.2,1.6,10,10,1.0,78,75.2,0.145
+Preset 19,"A1:Smar(v1,c2) A2:Repu(v3,c2) A3:Repu(v2,c2) A4:Gree(v3,c2) A5:Repu(v1,c2)",1×Greedy + 3×Repulsion + 1×Smart Random,2.0,2.0,10,10,1.0,95,92.6,0.234
+Preset 20,"A1:Smar(v2,c1) A2:Smar(v2,c1) A3:Repu(v3,c2) A4:Fron(v1,c2) A5:Gree(v2,c1)",1×Frontier + 1×Greedy + 1×Repulsion + 2×Smart Random,2.0,1.4,10,10,1.0,154,151.8,0.257
+Preset 21,"A1:Fron(v3,c2) A2:Fron(v1,c1) A3:Gree(v1,c2) A4:Smar(v3,c1) A5:Fron(v1,c1)",3×Frontier + 1×Greedy + 1×Smart Random,1.8,1.4,10,10,1.0,197,194.8,0.295
+Preset 22,"A1:Repu(v1,c1) A2:Smar(v1,c1) A3:Repu(v1,c2) A4:Repu(v2,c1) A5:Sect(v3,c2)",3×Repulsion + 1×Sector + 1×Smart Random,1.6,1.4,10,10,1.0,136,134.2,0.245
+Preset 23,"A1:Sect(v3,c2) A2:Gree(v2,c2) A3:Gree(v3,c2) A4:Repu(v1,c1) A5:Gree(v1,c1)",3×Greedy + 1×Repulsion + 1×Sector,2.0,1.6,10,10,1.0,97,93.8,0.318
+Preset 24,"A1:Sect(v1,c1) A2:Fron(v2,c2) A3:Gree(v3,c2) A4:Gree(v3,c1) A5:Fron(v2,c2)",2×Frontier + 2×Greedy + 1×Sector,2.2,1.6,10,10,1.0,118,113.2,0.328
+Preset 25,"A1:Smar(v2,c1) A2:Gree(v1,c2) A3:Repu(v1,c2) A4:Repu(v3,c1) A5:Fron(v1,c2)",1×Frontier + 1×Greedy + 2×Repulsion + 1×Smart Random,1.6,1.6,10,10,1.0,133,130.0,0.258
+Preset 26,"A1:Sect(v1,c2) A2:Smar(v1,c1) A3:Fron(v1,c2) A4:Repu(v2,c2) A5:Repu(v1,c2)",1×Frontier + 2×Repulsion + 1×Sector + 1×Smart Random,1.2,1.8,10,10,1.0,128,125.2,0.191
+Preset 27,"A1:Sect(v2,c2) A2:Fron(v2,c2) A3:Fron(v3,c1) A4:Fron(v3,c2) A5:Smar(v3,c2)",3×Frontier + 1×Sector + 1×Smart Random,2.6,1.8,10,10,1.0,99,96.8,0.124
+Preset 28,"A1:Repu(v2,c1) A2:Repu(v3,c2) A3:Smar(v2,c1) A4:Fron(v1,c1) A5:Repu(v1,c2)",1×Frontier + 3×Repulsion + 1×Smart Random,1.8,1.4,10,10,1.0,74,72.4,0.112
+Preset 29,"A1:Repu(v2,c1) A2:Gree(v2,c2) A3:Smar(v3,c2) A4:Repu(v2,c1) A5:Fron(v2,c1)",1×Frontier + 1×Greedy + 2×Repulsion + 1×Smart Random,2.2,1.4,10,10,1.0,105,102.4,0.219
+Preset 30,"A1:Gree(v2,c1) A2:Fron(v2,c1) A3:Fron(v1,c1) A4:Sect(v1,c2) A5:Gree(v2,c1)",2×Frontier + 2×Greedy + 1×Sector,1.6,1.2,10,10,1.0,106,103.2,0.26
+Preset 31,"A1:Fron(v3,c2) A2:Repu(v3,c1) A3:Sect(v3,c1) A4:Repu(v2,c1) A5:Repu(v2,c2)",1×Frontier + 3×Repulsion + 1×Sector,2.6,1.4,10,10,1.0,97,94.4,0.203
+Preset 32,"A1:Gree(v1,c1) A2:Smar(v2,c2) A3:Smar(v2,c1) A4:Smar(v2,c1) A5:Fron(v1,c2)",1×Frontier + 1×Greedy + 3×Smart Random,1.6,1.4,10,10,1.0,96,93.2,0.101
+Preset 33,"A1:Gree(v2,c1) A2:Sect(v2,c2) A3:Gree(v2,c1) A4:Fron(v2,c1) A5:Sect(v3,c1)",1×Frontier + 2×Greedy + 2×Sector,2.2,1.2,10,10,1.0,77,74.2,0.199
+Preset 34,"A1:Smar(v1,c1) A2:Smar(v2,c2) A3:Smar(v1,c2) A4:Repu(v1,c2) A5:Gree(v3,c1)",1×Greedy + 1×Repulsion + 3×Smart Random,1.6,1.6,10,10,1.0,136,134.4,0.22
+Preset 35,"A1:Sect(v3,c2) A2:Smar(v1,c2) A3:Sect(v2,c2) A4:Fron(v2,c1) A5:Gree(v2,c2)",1×Frontier + 1×Greedy + 2×Sector + 1×Smart Random,2.0,1.8,10,10,1.0,119,117.4,0.239
+Preset 36,"A1:Sect(v2,c2) A2:Gree(v2,c2) A3:Sect(v1,c1) A4:Sect(v1,c1) A5:Gree(v2,c2)",2×Greedy + 3×Sector,1.6,1.6,10,10,1.0,149,146.4,0.402
+Preset 37,"A1:Sect(v3,c2) A2:Smar(v3,c1) A3:Sect(v2,c1) A4:Fron(v2,c1) A5:Gree(v3,c1)",1×Frontier + 1×Greedy + 2×Sector + 1×Smart Random,2.6,1.2,10,10,1.0,105,103.0,0.278
+Preset 38,"A1:Gree(v2,c1) A2:Fron(v3,c1) A3:Fron(v3,c1) A4:Repu(v2,c2) A5:Fron(v3,c1)",3×Frontier + 1×Greedy + 1×Repulsion,2.6,1.2,10,10,1.0,101,98.0,0.208
+Preset 39,"A1:Fron(v2,c1) A2:Smar(v3,c2) A3:Sect(v2,c1) A4:Sect(v1,c1) A5:Repu(v2,c1)",1×Frontier + 1×Repulsion + 2×Sector + 1×Smart Random,2.0,1.2,10,10,1.0,117,115.0,0.194
+Preset 40,"A1:Gree(v3,c2) A2:Smar(v3,c2) A3:Sect(v2,c1) A4:Fron(v2,c1) A5:Gree(v2,c1)",1×Frontier + 2×Greedy + 1×Sector + 1×Smart Random,2.4,1.4,10,10,1.0,107,105.0,0.285
+Preset 41,"A1:Smar(v3,c1) A2:Repu(v1,c1) A3:Smar(v1,c1) A4:Fron(v3,c1) A5:Gree(v2,c1)",1×Frontier + 1×Greedy + 1×Repulsion + 2×Smart Random,2.0,1.0,10,10,1.0,93,90.6,0.171
+Preset 42,"A1:Repu(v3,c2) A2:Sect(v3,c2) A3:Sect(v3,c1) A4:Smar(v2,c1) A5:Gree(v3,c2)",1×Greedy + 1×Repulsion + 2×Sector + 1×Smart Random,2.8,1.6,10,10,1.0,110,108.2,0.279
+Preset 43,"A1:Gree(v1,c2) A2:Fron(v1,c2) A3:Repu(v3,c1) A4:Gree(v1,c2) A5:Sect(v3,c2)",1×Frontier + 2×Greedy + 1×Repulsion + 1×Sector,1.8,1.8,10,10,1.0,72,70.2,0.118
+Preset 44,"A1:Sect(v2,c2) A2:Fron(v2,c1) A3:Sect(v3,c1) A4:Gree(v2,c1) A5:Smar(v2,c2)",1×Frontier + 1×Greedy + 2×Sector + 1×Smart Random,2.2,1.4,10,10,1.0,128,125.8,0.238
+Preset 45,"A1:Sect(v1,c2) A2:Repu(v3,c1) A3:Fron(v3,c1) A4:Sect(v2,c1) A5:Gree(v2,c1)",1×Frontier + 1×Greedy + 1×Repulsion + 2×Sector,2.2,1.2,10,10,1.0,135,131.4,0.328
+Preset 46,"A1:Fron(v3,c1) A2:Gree(v1,c2) A3:Smar(v3,c2) A4:Repu(v1,c2) A5:Gree(v3,c2)",1×Frontier + 2×Greedy + 1×Repulsion + 1×Smart Random,2.2,1.8,10,10,1.0,135,132.6,0.37
+Preset 47,"A1:Sect(v3,c1) A2:Fron(v2,c2) A3:Gree(v3,c1) A4:Gree(v3,c1) A5:Smar(v3,c2)",1×Frontier + 2×Greedy + 1×Sector + 1×Smart Random,2.8,1.4,10,10,1.0,85,83.4,0.276
+Preset 48,"A1:Sect(v2,c2) A2:Fron(v3,c1) A3:Smar(v3,c2) A4:Fron(v1,c1) A5:Fron(v2,c1)",3×Frontier + 1×Sector + 1×Smart Random,2.2,1.4,10,10,1.0,87,84.8,0.107
+Preset 49,"A1:Smar(v3,c2) A2:Smar(v3,c2) A3:Sect(v1,c1) A4:Repu(v2,c1) A5:Repu(v2,c2)",2×Repulsion + 1×Sector + 2×Smart Random,2.2,1.6,10,10,1.0,83,81.0,0.124
+Preset 50,"A1:Repu(v3,c1) A2:Smar(v1,c2) A3:Sect(v1,c1) A4:Sect(v1,c1) A5:Repu(v1,c1)",2×Repulsion + 2×Sector + 1×Smart Random,1.4,1.2,10,10,1.0,126,124.4,0.217
+Preset 51,"A1:Repu(v2,c1) A2:Repu(v3,c2) A3:Repu(v2,c2) A4:Sect(v3,c1) A5:Sect(v2,c1)",3×Repulsion + 2×Sector,2.4,1.4,10,10,1.0,144,141.2,0.336
+Preset 52,"A1:Gree(v1,c2) A2:Gree(v1,c2) A3:Fron(v3,c2) A4:Repu(v3,c1) A5:Fron(v3,c1)",2×Frontier + 2×Greedy + 1×Repulsion,2.2,1.6,10,10,1.0,108,105.2,0.227
+Preset 53,"A1:Repu(v3,c2) A2:Fron(v1,c1) A3:Gree(v3,c1) A4:Gree(v2,c2) A5:Fron(v1,c1)",2×Frontier + 2×Greedy + 1×Repulsion,2.0,1.4,10,10,1.0,113,110.6,0.321
+Preset 54,"A1:Sect(v3,c2) A2:Repu(v3,c1) A3:Gree(v1,c1) A4:Repu(v1,c2) A5:Fron(v3,c1)",1×Frontier + 1×Greedy + 2×Repulsion + 1×Sector,2.2,1.4,10,10,1.0,91,88.6,0.188
+Preset 55,"A1:Fron(v3,c2) A2:Gree(v1,c1) A3:Sect(v3,c2) A4:Fron(v1,c1) A5:Fron(v2,c1)",3×Frontier + 1×Greedy + 1×Sector,2.0,1.4,10,10,1.0,150,147.4,0.271
+Preset 56,"A1:Fron(v2,c2) A2:Fron(v2,c2) A3:Sect(v1,c1) A4:Sect(v3,c2) A5:Sect(v3,c1)",2×Frontier + 3×Sector,2.2,1.6,10,10,1.0,106,103.6,0.18
+Preset 57,"A1:Fron(v1,c2) A2:Repu(v2,c1) A3:Smar(v3,c1) A4:Gree(v2,c2) A5:Sect(v1,c1)",1×Frontier + 1×Greedy + 1×Repulsion + 1×Sector + 1×Smart Random,1.8,1.4,9,10,0.9,500,497.8,1.283
+Preset 58,"A1:Fron(v3,c1) A2:Gree(v2,c1) A3:Smar(v3,c2) A4:Smar(v2,c1) A5:Repu(v2,c1)",1×Frontier + 1×Greedy + 1×Repulsion + 2×Smart Random,2.4,1.2,10,10,1.0,83,80.4,0.153
+Preset 59,"A1:Fron(v3,c2) A2:Repu(v2,c2) A3:Repu(v1,c2) A4:Repu(v3,c1) A5:Fron(v2,c1)",2×Frontier + 3×Repulsion,2.2,1.6,10,10,1.0,109,106.8,0.193
+Preset 60,"A1:Gree(v3,c1) A2:Sect(v3,c2) A3:Repu(v1,c1) A4:Smar(v3,c2) A5:Gree(v3,c1)",2×Greedy + 1×Repulsion + 1×Sector + 1×Smart Random,2.6,1.4,10,10,1.0,83,81.0,0.299
+Preset 61,"A1:Repu(v2,c1) A2:Repu(v1,c2) A3:Smar(v2,c1) A4:Gree(v2,c2) A5:Fron(v1,c1)",1×Frontier + 1×Greedy + 2×Repulsion + 1×Smart Random,1.6,1.4,10,10,1.0,181,179.6,0.375
+Preset 62,"A1:Fron(v1,c2) A2:Smar(v1,c2) A3:Gree(v1,c1) A4:Fron(v2,c2) A5:Gree(v1,c1)",2×Frontier + 2×Greedy + 1×Smart Random,1.2,1.6,10,10,1.0,174,170.8,0.31
+Preset 63,"A1:Fron(v1,c1) A2:Fron(v3,c2) A3:Fron(v2,c1) A4:Fron(v3,c2) A5:Sect(v3,c2)",4×Frontier + 1×Sector,2.4,1.6,10,10,1.0,66,63.8,0.096
+Preset 64,"A1:Fron(v2,c2) A2:Smar(v2,c2) A3:Smar(v3,c1) A4:Smar(v3,c2) A5:Smar(v1,c2)",1×Frontier + 4×Smart Random,2.2,1.8,10,10,1.0,96,93.8,0.056
+Preset 65,"A1:Fron(v3,c2) A2:Smar(v3,c1) A3:Sect(v1,c2) A4:Repu(v3,c1) A5:Gree(v2,c1)",1×Frontier + 1×Greedy + 1×Repulsion + 1×Sector + 1×Smart Random,2.4,1.4,10,10,1.0,92,90.0,0.188
+Preset 66,"A1:Smar(v3,c1) A2:Sect(v1,c1) A3:Smar(v2,c1) A4:Gree(v3,c2) A5:Gree(v1,c2)",2×Greedy + 1×Sector + 2×Smart Random,2.0,1.4,10,10,1.0,96,94.0,0.201
+Preset 67,"A1:Repu(v1,c1) A2:Gree(v2,c1) A3:Fron(v3,c1) A4:Gree(v2,c2) A5:Gree(v2,c1)",1×Frontier + 3×Greedy + 1×Repulsion,2.0,1.2,10,10,1.0,113,110.0,0.381
+Preset 68,"A1:Smar(v1,c1) A2:Sect(v1,c1) A3:Smar(v1,c1) A4:Smar(v1,c2) A5:Fron(v3,c2)",1×Frontier + 1×Sector + 3×Smart Random,1.4,1.4,10,10,1.0,193,191.0,0.174
+Preset 69,"A1:Repu(v2,c2) A2:Fron(v3,c2) A3:Sect(v2,c2) A4:Fron(v3,c2) A5:Gree(v2,c2)",2×Frontier + 1×Greedy + 1×Repulsion + 1×Sector,2.4,2.0,10,10,1.0,84,81.8,0.148
+Preset 70,"A1:Sect(v2,c1) A2:Smar(v3,c2) A3:Smar(v3,c1) A4:Sect(v2,c2) A5:Sect(v2,c2)",3×Sector + 2×Smart Random,2.4,1.6,10,10,1.0,79,76.8,0.122
+Preset 71,"A1:Gree(v2,c2) A2:Smar(v1,c2) A3:Gree(v2,c2) A4:Repu(v3,c1) A5:Repu(v1,c1)",2×Greedy + 2×Repulsion + 1×Smart Random,1.8,1.6,10,10,1.0,98,95.2,0.219
+Preset 72,"A1:Smar(v3,c1) A2:Sect(v2,c1) A3:Sect(v2,c2) A4:Sect(v1,c1) A5:Sect(v2,c2)",4×Sector + 1×Smart Random,2.0,1.4,10,10,1.0,81,79.0,0.144
+Preset 73,"A1:Sect(v2,c1) A2:Fron(v2,c2) A3:Smar(v1,c2) A4:Repu(v3,c1) A5:Gree(v2,c1)",1×Frontier + 1×Greedy + 1×Repulsion + 1×Sector + 1×Smart Random,2.0,1.4,10,10,1.0,72,69.8,0.149
+Preset 74,"A1:Repu(v1,c1) A2:Gree(v1,c1) A3:Gree(v2,c1) A4:Smar(v2,c1) A5:Gree(v1,c2)",3×Greedy + 1×Repulsion + 1×Smart Random,1.4,1.2,10,10,1.0,139,137.0,0.317
+Preset 75,"A1:Sect(v2,c2) A2:Smar(v3,c1) A3:Repu(v2,c1) A4:Smar(v1,c1) A5:Fron(v3,c2)",1×Frontier + 1×Repulsion + 1×Sector + 2×Smart Random,2.2,1.4,10,10,1.0,74,72.6,0.086
+Preset 76,"A1:Gree(v3,c2) A2:Fron(v1,c2) A3:Gree(v3,c2) A4:Gree(v1,c2) A5:Sect(v1,c2)",1×Frontier + 3×Greedy + 1×Sector,1.8,2.0,10,10,1.0,90,88.0,0.285
+Preset 77,"A1:Sect(v1,c2) A2:Gree(v2,c2) A3:Fron(v1,c2) A4:Gree(v2,c1) A5:Sect(v3,c2)",1×Frontier + 2×Greedy + 2×Sector,1.8,1.8,10,10,1.0,168,166.0,0.47
+Preset 78,"A1:Repu(v3,c1) A2:Sect(v1,c2) A3:Fron(v2,c2) A4:Fron(v1,c1) A5:Gree(v1,c2)",2×Frontier + 1×Greedy + 1×Repulsion + 1×Sector,1.6,1.6,10,10,1.0,149,147.4,0.311
+Preset 79,"A1:Smar(v1,c2) A2:Sect(v3,c2) A3:Gree(v2,c2) A4:Fron(v1,c1) A5:Fron(v3,c2)",2×Frontier + 1×Greedy + 1×Sector + 1×Smart Random,2.0,1.8,10,10,1.0,75,72.8,0.139
+Preset 80,"A1:Smar(v1,c1) A2:Repu(v2,c1) A3:Gree(v1,c1) A4:Repu(v2,c2) A5:Repu(v2,c2)",1×Greedy + 3×Repulsion + 1×Smart Random,1.6,1.4,10,10,1.0,81,78.4,0.153
+Preset 81,"A1:Gree(v3,c1) A2:Repu(v2,c2) A3:Repu(v3,c1) A4:Repu(v2,c1) A5:Smar(v3,c1)",1×Greedy + 3×Repulsion + 1×Smart Random,2.6,1.2,10,10,1.0,87,85.2,0.228
+Preset 82,"A1:Smar(v3,c2) A2:Gree(v3,c1) A3:Sect(v2,c1) A4:Sect(v2,c2) A5:Fron(v1,c1)",1×Frontier + 1×Greedy + 2×Sector + 1×Smart Random,2.2,1.4,10,10,1.0,70,68.4,0.145
+Preset 83,"A1:Repu(v1,c1) A2:Repu(v1,c1) A3:Fron(v1,c2) A4:Gree(v2,c2) A5:Fron(v3,c2)",2×Frontier + 1×Greedy + 2×Repulsion,1.6,1.6,10,10,1.0,142,139.6,0.328
+Preset 84,"A1:Repu(v2,c1) A2:Gree(v1,c2) A3:Smar(v1,c1) A4:Repu(v1,c1) A5:Gree(v3,c1)",2×Greedy + 2×Repulsion + 1×Smart Random,1.6,1.2,10,10,1.0,105,103.0,0.247
+Preset 85,"A1:Smar(v2,c1) A2:Repu(v2,c2) A3:Fron(v1,c1) A4:Gree(v3,c2) A5:Fron(v3,c2)",2×Frontier + 1×Greedy + 1×Repulsion + 1×Smart Random,2.2,1.6,10,10,1.0,90,87.8,0.121
+Preset 86,"A1:Fron(v1,c2) A2:Smar(v1,c2) A3:Repu(v2,c2) A4:Sect(v2,c2) A5:Fron(v1,c2)",2×Frontier + 1×Repulsion + 1×Sector + 1×Smart Random,1.4,2.0,10,10,1.0,124,120.6,0.182
+Preset 87,"A1:Repu(v3,c1) A2:Fron(v2,c1) A3:Gree(v2,c2) A4:Sect(v1,c1) A5:Fron(v2,c2)",2×Frontier + 1×Greedy + 1×Repulsion + 1×Sector,2.0,1.4,10,10,1.0,119,117.0,0.259
+Preset 88,"A1:Fron(v3,c2) A2:Sect(v2,c1) A3:Gree(v2,c1) A4:Fron(v1,c2) A5:Smar(v3,c1)",2×Frontier + 1×Greedy + 1×Sector + 1×Smart Random,2.2,1.4,10,10,1.0,87,84.2,0.14
+Preset 89,"A1:Gree(v1,c2) A2:Sect(v3,c1) A3:Fron(v1,c1) A4:Gree(v3,c2) A5:Fron(v2,c1)",2×Frontier + 2×Greedy + 1×Sector,2.0,1.4,10,10,1.0,115,112.6,0.303
+Preset 90,"A1:Smar(v1,c2) A2:Fron(v1,c2) A3:Fron(v1,c2) A4:Fron(v1,c1) A5:Sect(v3,c2)",3×Frontier + 1×Sector + 1×Smart Random,1.4,1.8,10,10,1.0,108,106.2,0.139
+Preset 91,"A1:Smar(v1,c1) A2:Repu(v3,c1) A3:Sect(v3,c2) A4:Gree(v3,c1) A5:Smar(v2,c1)",1×Greedy + 1×Repulsion + 1×Sector + 2×Smart Random,2.4,1.2,10,10,1.0,156,154.6,0.277
+Preset 92,"A1:Repu(v2,c1) A2:Sect(v2,c2) A3:Fron(v2,c2) A4:Sect(v3,c2) A5:Gree(v3,c1)",1×Frontier + 1×Greedy + 1×Repulsion + 2×Sector,2.4,1.6,10,10,1.0,71,69.0,0.186
+Preset 93,"A1:Sect(v2,c1) A2:Gree(v1,c2) A3:Smar(v2,c2) A4:Smar(v3,c1) A5:Repu(v3,c1)",1×Greedy + 1×Repulsion + 1×Sector + 2×Smart Random,2.2,1.4,10,10,1.0,89,86.6,0.118
+Preset 94,"A1:Sect(v3,c2) A2:Sect(v2,c2) A3:Fron(v1,c1) A4:Fron(v1,c2) A5:Fron(v1,c1)",3×Frontier + 2×Sector,1.6,1.6,10,10,1.0,94,91.8,0.132
+Preset 95,"A1:Sect(v1,c1) A2:Fron(v1,c1) A3:Smar(v2,c1) A4:Repu(v3,c2) A5:Sect(v3,c2)",1×Frontier + 1×Repulsion + 2×Sector + 1×Smart Random,2.0,1.4,10,10,1.0,75,72.4,0.102
+Preset 96,"A1:Repu(v2,c1) A2:Fron(v2,c1) A3:Fron(v2,c2) A4:Smar(v3,c1) A5:Smar(v1,c2)",2×Frontier + 1×Repulsion + 2×Smart Random,2.0,1.4,10,10,1.0,101,99.8,0.119
+Preset 97,"A1:Repu(v1,c2) A2:Smar(v1,c1) A3:Gree(v1,c2) A4:Repu(v2,c1) A5:Repu(v1,c2)",1×Greedy + 3×Repulsion + 1×Smart Random,1.2,1.6,10,10,1.0,115,112.2,0.207
+Preset 98,"A1:Repu(v1,c1) A2:Sect(v3,c2) A3:Sect(v1,c2) A4:Sect(v3,c2) A5:Repu(v3,c1)",2×Repulsion + 3×Sector,2.2,1.6,10,10,1.0,80,78.0,0.159
+Preset 99,"A1:Fron(v1,c2) A2:Sect(v1,c1) A3:Sect(v2,c2) A4:Smar(v3,c2) A5:Smar(v2,c1)",1×Frontier + 2×Sector + 2×Smart Random,1.8,1.6,10,10,1.0,101,98.4,0.132
+Preset 100,"A1:Repu(v1,c1) A2:Sect(v3,c1) A3:Repu(v2,c2) A4:Smar(v3,c2) A5:Gree(v1,c1)",1×Greedy + 2×Repulsion + 1×Sector + 1×Smart Random,2.0,1.4,10,10,1.0,63,61.2,0.118

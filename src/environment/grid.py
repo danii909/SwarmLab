@@ -84,6 +84,15 @@ class Grid:
                     cells.append((r, c))
         return cells
 
+    def empty_cells(self) -> List[Tuple[int, int]]:
+        """Restituisce tutte le celle EMPTY (corridor liberi percorribili)."""
+        cells = []
+        for r in range(self.size):
+            for c in range(self.size):
+                if self.cell(r, c) == CellType.EMPTY:
+                    cells.append((r, c))
+        return cells
+
     # ------------------------------------------------------------------
     # Rappresentazione
     # ------------------------------------------------------------------

@@ -1,16 +1,7 @@
-"""
-Strategia 5 — Greedy verso l'oggetto noto più vicino.
-
-Se l'agente non conosce ancora nessun oggetto, esplora con frontier-based.
-Appena rileva uno o più oggetti, si muove in modo greedy verso il più vicino.
-"""
-
-from __future__ import annotations
-
+﻿from src.agents.strategies.base import ExplorationStrategy
+from src.environment.grid import CellType
+import random
 from typing import Optional, Set, Tuple, TYPE_CHECKING
-
-from src.agents.strategies.base import ExplorationStrategy
-from src.agents.strategies.frontier import FrontierStrategy
 
 if TYPE_CHECKING:
     from src.agents.agent import Agent
@@ -19,39 +10,68 @@ if TYPE_CHECKING:
 
 
 class GreedyStrategy(ExplorationStrategy):
-    """
-    Greedy puro: raccoglie l'oggetto noto più vicino, poi consegna,
-    poi torna a cercare. Se non conosce oggetti, delega al frontier.
-    """
+    """Esplorazione orientata al guadagno informativo con bias warehouse."""
 
     def __init__(self) -> None:
-        self._fallback = FrontierStrategy()
+        super().__init__()
 
-    def next_move(
-        self,
-        agent: "Agent",
-        env: "Environment",
-        pathfinder: "Pathfinder",
-        occupied: Set[Tuple[int, int]],
-    ) -> Optional[Tuple[int, int]]:
+    def next_move(self, agent: 'Agent', env: 'Environment', pathfinder: 'Pathfinder', occupied: Set[Tuple[int, int]]) -> Optional[Tuple[int, int]]:
+        # 1) Regole universali: se trasporto consegno, se vedo un pacco vado al pacco.
+        move = self._priority_move(agent, env, pathfinder, occupied)
+        if move:
+            return move
 
-        # --- Se sta trasportando, vai all'ingresso più vicino ---
-        if agent.carrying_object:
-            target = env.nearest_warehouse_entrance(*agent.pos)
-            if target:
-                step = pathfinder.next_step(agent.pos, target, occupied - {agent.pos})
-                if step:
-                    return step
+        # 2) Target di esplorazione: celle di copertura (unseen/stale/patrol).
+        # nearest_wh e' usato come tie-break per favorire zone utili alla logistica.
+        nearest_wh = self._nearest_known_warehouse(agent)
+        targets = self._coverage_targets(agent, env)
 
-        # --- Se conosce oggetti, vai al più vicino ---
-        if agent.known_objects:
-            nearest = min(
-                agent.known_objects,
-                key=lambda p: abs(p[0] - agent.row) + abs(p[1] - agent.col),
-            )
-            step = pathfinder.next_step(agent.pos, nearest, occupied - {agent.pos})
+        if targets:
+            # Score greedy (minimizzazione):
+            # distanza agente->target
+            # + distanza target->warehouse noto
+            # - information gain locale (premia target che scoprono piu' celle)
+            best = min(targets, key=lambda p: (abs(p[0] - agent.row) + abs(p[1] - agent.col) + (abs(p[0] - nearest_wh[0]) + abs(p[1] - nearest_wh[1]) if nearest_wh else 0) - self._information_gain(p, agent)))
+            step = pathfinder.next_step(agent.pos, best, occupied - {agent.pos})
             if step:
                 return step
 
-        # --- Fallback: frontier-based ---
-        return self._fallback.next_move(agent, env, pathfinder, occupied)
+        # 3) Se non ho un buon target, provo a riavvicinarmi a un altro agente
+        # per aumentare chance di comunicazione/scambio mappa.
+        if agent.known_agents:
+            nearest_agent_pos = min((pos for pos, _tick in agent.known_agents.values()), key=lambda p: abs(p[0] - agent.row) + abs(p[1] - agent.col))
+            if abs(nearest_agent_pos[0] - agent.row) + abs(nearest_agent_pos[1] - agent.col) > agent.comm_radius:
+                step = pathfinder.next_step(agent.pos, nearest_agent_pos, occupied - {agent.pos})
+                if step:
+                    return step
+
+        # 4) Fallback robusto: random walk tra vicini liberi (anti-stallo).
+        neighbors = env.grid.walkable_neighbors(agent.row, agent.col)
+        free = [n for n in neighbors if n not in occupied]
+        return random.choice(free) if free else (random.choice(neighbors) if neighbors else None)
+
+    def _nearest_known_warehouse(self, agent: 'Agent') -> Optional[Tuple[int, int]]:
+        """Trova la cella di warehouse/entrata/uscita piu' vicina nella mappa locale."""
+        nearest = None
+        best_dist = float('inf')
+        for (r, c), cell_type in agent.local_map.items():
+            if cell_type in (CellType.ENTRANCE, CellType.EXIT, CellType.WAREHOUSE):
+                dist = abs(r - agent.row) + abs(c - agent.col)
+                if dist < best_dist:
+                    best_dist = dist
+                    nearest = (r, c)
+        return nearest
+
+    def _information_gain(self, target: Tuple[int, int], agent: 'Agent') -> int:
+        """Conta quante celle non viste ricadono nel raggio visivo se andassi su target."""
+        radius = agent.visibility_radius
+        tr, tc = target
+        gain = 0
+        for dr in range(-radius, radius + 1):
+            for dc in range(-radius, radius + 1):
+                if abs(dr) + abs(dc) > radius:
+                    continue
+                nr, nc = tr + dr, tc + dc
+                if (nr, nc) not in agent.seen_cells:
+                    gain += 1
+        return gain
