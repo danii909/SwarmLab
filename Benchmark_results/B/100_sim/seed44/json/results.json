@@ -1,0 +1,7502 @@
+[
+  {
+    "preset_name": "Preset 1",
+    "config_str": "A1:Sect(v1,c2) A2:Sect(v3,c1) A3:Sect(v3,c2) A4:Repu(v3,c1) A5:Smar(v2,c2)",
+    "team_desc": "1\u00d7Repulsion + 3\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        2,
+        1,
+        2
+      ],
+      [
+        2,
+        3,
+        1
+      ],
+      [
+        2,
+        3,
+        2
+      ],
+      [
+        3,
+        3,
+        1
+      ],
+      [
+        4,
+        2,
+        2
+      ]
+    ],
+    "dominant_strategy": "Sector",
+    "avg_vis": 2.4,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 81,
+    "average_energy": 78.0,
+    "first_pickup_tick": 17,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.141
+  },
+  {
+    "preset_name": "Preset 2",
+    "config_str": "A1:Fron(v2,c2) A2:Fron(v3,c2) A3:Sect(v1,c1) A4:Gree(v1,c2) A5:Gree(v2,c2)",
+    "team_desc": "2\u00d7Frontier + 2\u00d7Greedy + 1\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        0,
+        2,
+        2
+      ],
+      [
+        0,
+        3,
+        2
+      ],
+      [
+        2,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        2
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 1.8,
+    "avg_comm": 1.8,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 138,
+    "average_energy": 135.6,
+    "first_pickup_tick": 15,
+    "first_delivery_tick": 19,
+    "cpu_time": 0.363
+  },
+  {
+    "preset_name": "Preset 3",
+    "config_str": "A1:Fron(v1,c1) A2:Gree(v1,c2) A3:Fron(v2,c2) A4:Repu(v1,c1) A5:Fron(v1,c1)",
+    "team_desc": "3\u00d7Frontier + 1\u00d7Greedy + 1\u00d7Repulsion",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        0,
+        2,
+        2
+      ],
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        1
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 1.2,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 151,
+    "average_energy": 148.4,
+    "first_pickup_tick": 18,
+    "first_delivery_tick": 23,
+    "cpu_time": 0.295
+  },
+  {
+    "preset_name": "Preset 4",
+    "config_str": "A1:Fron(v2,c2) A2:Fron(v3,c2) A3:Smar(v1,c1) A4:Sect(v3,c1) A5:Repu(v3,c1)",
+    "team_desc": "2\u00d7Frontier + 1\u00d7Repulsion + 1\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        0,
+        2,
+        2
+      ],
+      [
+        0,
+        3,
+        2
+      ],
+      [
+        4,
+        1,
+        1
+      ],
+      [
+        2,
+        3,
+        1
+      ],
+      [
+        3,
+        3,
+        1
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 2.4,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 110,
+    "average_energy": 108.0,
+    "first_pickup_tick": 15,
+    "first_delivery_tick": 19,
+    "cpu_time": 0.144
+  },
+  {
+    "preset_name": "Preset 5",
+    "config_str": "A1:Gree(v2,c2) A2:Repu(v3,c1) A3:Repu(v2,c1) A4:Sect(v1,c1) A5:Repu(v1,c1)",
+    "team_desc": "1\u00d7Greedy + 3\u00d7Repulsion + 1\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        1,
+        2,
+        2
+      ],
+      [
+        3,
+        3,
+        1
+      ],
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        2,
+        1,
+        1
+      ],
+      [
+        3,
+        1,
+        1
+      ]
+    ],
+    "dominant_strategy": "Repulsion",
+    "avg_vis": 1.8,
+    "avg_comm": 1.2,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 89,
+    "average_energy": 86.4,
+    "first_pickup_tick": 15,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.194
+  },
+  {
+    "preset_name": "Preset 6",
+    "config_str": "A1:Sect(v1,c1) A2:Smar(v1,c1) A3:Repu(v3,c1) A4:Repu(v2,c2) A5:Gree(v3,c1)",
+    "team_desc": "1\u00d7Greedy + 2\u00d7Repulsion + 1\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        2,
+        1,
+        1
+      ],
+      [
+        4,
+        1,
+        1
+      ],
+      [
+        3,
+        3,
+        1
+      ],
+      [
+        3,
+        2,
+        2
+      ],
+      [
+        1,
+        3,
+        1
+      ]
+    ],
+    "dominant_strategy": "Repulsion",
+    "avg_vis": 2.0,
+    "avg_comm": 1.2,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 84,
+    "average_energy": 81.4,
+    "first_pickup_tick": 17,
+    "first_delivery_tick": 22,
+    "cpu_time": 0.222
+  },
+  {
+    "preset_name": "Preset 7",
+    "config_str": "A1:Gree(v3,c2) A2:Fron(v2,c1) A3:Gree(v3,c1) A4:Smar(v2,c1) A5:Gree(v2,c2)",
+    "team_desc": "1\u00d7Frontier + 3\u00d7Greedy + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        1,
+        3,
+        2
+      ],
+      [
+        0,
+        2,
+        1
+      ],
+      [
+        1,
+        3,
+        1
+      ],
+      [
+        4,
+        2,
+        1
+      ],
+      [
+        1,
+        2,
+        2
+      ]
+    ],
+    "dominant_strategy": "Greedy",
+    "avg_vis": 2.4,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 131,
+    "average_energy": 128.8,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.441
+  },
+  {
+    "preset_name": "Preset 8",
+    "config_str": "A1:Repu(v1,c2) A2:Fron(v3,c2) A3:Fron(v2,c2) A4:Sect(v3,c1) A5:Fron(v2,c1)",
+    "team_desc": "3\u00d7Frontier + 1\u00d7Repulsion + 1\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        3,
+        1,
+        2
+      ],
+      [
+        0,
+        3,
+        2
+      ],
+      [
+        0,
+        2,
+        2
+      ],
+      [
+        2,
+        3,
+        1
+      ],
+      [
+        0,
+        2,
+        1
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 2.2,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 74,
+    "average_energy": 72.0,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 19,
+    "cpu_time": 0.098
+  },
+  {
+    "preset_name": "Preset 9",
+    "config_str": "A1:Repu(v1,c1) A2:Fron(v2,c2) A3:Gree(v2,c1) A4:Gree(v3,c1) A5:Fron(v2,c2)",
+    "team_desc": "2\u00d7Frontier + 2\u00d7Greedy + 1\u00d7Repulsion",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        0,
+        2,
+        2
+      ],
+      [
+        1,
+        2,
+        1
+      ],
+      [
+        1,
+        3,
+        1
+      ],
+      [
+        0,
+        2,
+        2
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 2.0,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 81,
+    "average_energy": 78.2,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.246
+  },
+  {
+    "preset_name": "Preset 10",
+    "config_str": "A1:Repu(v2,c1) A2:Smar(v2,c1) A3:Gree(v2,c2) A4:Fron(v1,c2) A5:Gree(v3,c2)",
+    "team_desc": "1\u00d7Frontier + 2\u00d7Greedy + 1\u00d7Repulsion + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        4,
+        2,
+        1
+      ],
+      [
+        1,
+        2,
+        2
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        3,
+        2
+      ]
+    ],
+    "dominant_strategy": "Greedy",
+    "avg_vis": 2.0,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 128,
+    "average_energy": 126.0,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 19,
+    "cpu_time": 0.34
+  },
+  {
+    "preset_name": "Preset 11",
+    "config_str": "A1:Sect(v1,c1) A2:Fron(v2,c2) A3:Sect(v2,c2) A4:Sect(v2,c2) A5:Smar(v3,c2)",
+    "team_desc": "1\u00d7Frontier + 3\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        2,
+        1,
+        1
+      ],
+      [
+        0,
+        2,
+        2
+      ],
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        4,
+        3,
+        2
+      ]
+    ],
+    "dominant_strategy": "Sector",
+    "avg_vis": 2.0,
+    "avg_comm": 1.8,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 130,
+    "average_energy": 128.0,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.208
+  },
+  {
+    "preset_name": "Preset 12",
+    "config_str": "A1:Gree(v1,c1) A2:Gree(v1,c1) A3:Fron(v3,c1) A4:Gree(v2,c1) A5:Repu(v3,c2)",
+    "team_desc": "1\u00d7Frontier + 3\u00d7Greedy + 1\u00d7Repulsion",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        0,
+        3,
+        1
+      ],
+      [
+        1,
+        2,
+        1
+      ],
+      [
+        3,
+        3,
+        2
+      ]
+    ],
+    "dominant_strategy": "Greedy",
+    "avg_vis": 2.0,
+    "avg_comm": 1.2,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 158,
+    "average_energy": 155.2,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.405
+  },
+  {
+    "preset_name": "Preset 13",
+    "config_str": "A1:Gree(v1,c2) A2:Smar(v1,c1) A3:Fron(v1,c2) A4:Fron(v1,c2) A5:Repu(v2,c2)",
+    "team_desc": "2\u00d7Frontier + 1\u00d7Greedy + 1\u00d7Repulsion + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        4,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        3,
+        2,
+        2
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 1.2,
+    "avg_comm": 1.8,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 93,
+    "average_energy": 90.2,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.152
+  },
+  {
+    "preset_name": "Preset 14",
+    "config_str": "A1:Smar(v2,c1) A2:Repu(v2,c2) A3:Sect(v1,c2) A4:Repu(v3,c1) A5:Fron(v1,c2)",
+    "team_desc": "1\u00d7Frontier + 2\u00d7Repulsion + 1\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        4,
+        2,
+        1
+      ],
+      [
+        3,
+        2,
+        2
+      ],
+      [
+        2,
+        1,
+        2
+      ],
+      [
+        3,
+        3,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "dominant_strategy": "Repulsion",
+    "avg_vis": 1.8,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 87,
+    "average_energy": 85.0,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.142
+  },
+  {
+    "preset_name": "Preset 15",
+    "config_str": "A1:Repu(v3,c2) A2:Repu(v3,c1) A3:Repu(v3,c1) A4:Repu(v3,c2) A5:Smar(v2,c2)",
+    "team_desc": "4\u00d7Repulsion + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        3,
+        3,
+        2
+      ],
+      [
+        3,
+        3,
+        1
+      ],
+      [
+        3,
+        3,
+        1
+      ],
+      [
+        3,
+        3,
+        2
+      ],
+      [
+        4,
+        2,
+        2
+      ]
+    ],
+    "dominant_strategy": "Repulsion",
+    "avg_vis": 2.8,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 112,
+    "average_energy": 109.6,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 19,
+    "cpu_time": 0.218
+  },
+  {
+    "preset_name": "Preset 16",
+    "config_str": "A1:Repu(v2,c1) A2:Smar(v1,c2) A3:Gree(v3,c1) A4:Gree(v3,c2) A5:Smar(v2,c1)",
+    "team_desc": "2\u00d7Greedy + 1\u00d7Repulsion + 2\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        4,
+        1,
+        2
+      ],
+      [
+        1,
+        3,
+        1
+      ],
+      [
+        1,
+        3,
+        2
+      ],
+      [
+        4,
+        2,
+        1
+      ]
+    ],
+    "dominant_strategy": "Smart Random",
+    "avg_vis": 2.2,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 76,
+    "average_energy": 74.2,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 19,
+    "cpu_time": 0.231
+  },
+  {
+    "preset_name": "Preset 17",
+    "config_str": "A1:Sect(v2,c2) A2:Repu(v2,c1) A3:Sect(v2,c1) A4:Repu(v1,c1) A5:Smar(v1,c2)",
+    "team_desc": "2\u00d7Repulsion + 2\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        2,
+        2,
+        1
+      ],
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        4,
+        1,
+        2
+      ]
+    ],
+    "dominant_strategy": "Sector",
+    "avg_vis": 1.6,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 156,
+    "average_energy": 153.8,
+    "first_pickup_tick": 15,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.27
+  },
+  {
+    "preset_name": "Preset 18",
+    "config_str": "A1:Sect(v3,c2) A2:Fron(v3,c1) A3:Gree(v1,c2) A4:Sect(v2,c2) A5:Sect(v2,c1)",
+    "team_desc": "1\u00d7Frontier + 1\u00d7Greedy + 3\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        2,
+        3,
+        2
+      ],
+      [
+        0,
+        3,
+        1
+      ],
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        2,
+        2,
+        1
+      ]
+    ],
+    "dominant_strategy": "Sector",
+    "avg_vis": 2.2,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 78,
+    "average_energy": 75.2,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 22,
+    "cpu_time": 0.145
+  },
+  {
+    "preset_name": "Preset 19",
+    "config_str": "A1:Smar(v1,c2) A2:Repu(v3,c2) A3:Repu(v2,c2) A4:Gree(v3,c2) A5:Repu(v1,c2)",
+    "team_desc": "1\u00d7Greedy + 3\u00d7Repulsion + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        4,
+        1,
+        2
+      ],
+      [
+        3,
+        3,
+        2
+      ],
+      [
+        3,
+        2,
+        2
+      ],
+      [
+        1,
+        3,
+        2
+      ],
+      [
+        3,
+        1,
+        2
+      ]
+    ],
+    "dominant_strategy": "Repulsion",
+    "avg_vis": 2.0,
+    "avg_comm": 2.0,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 95,
+    "average_energy": 92.6,
+    "first_pickup_tick": 17,
+    "first_delivery_tick": 22,
+    "cpu_time": 0.234
+  },
+  {
+    "preset_name": "Preset 20",
+    "config_str": "A1:Smar(v2,c1) A2:Smar(v2,c1) A3:Repu(v3,c2) A4:Fron(v1,c2) A5:Gree(v2,c1)",
+    "team_desc": "1\u00d7Frontier + 1\u00d7Greedy + 1\u00d7Repulsion + 2\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        4,
+        2,
+        1
+      ],
+      [
+        4,
+        2,
+        1
+      ],
+      [
+        3,
+        3,
+        2
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        1
+      ]
+    ],
+    "dominant_strategy": "Smart Random",
+    "avg_vis": 2.0,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 154,
+    "average_energy": 151.8,
+    "first_pickup_tick": 15,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.257
+  },
+  {
+    "preset_name": "Preset 21",
+    "config_str": "A1:Fron(v3,c2) A2:Fron(v1,c1) A3:Gree(v1,c2) A4:Smar(v3,c1) A5:Fron(v1,c1)",
+    "team_desc": "3\u00d7Frontier + 1\u00d7Greedy + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        0,
+        3,
+        2
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        4,
+        3,
+        1
+      ],
+      [
+        0,
+        1,
+        1
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 1.8,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 197,
+    "average_energy": 194.8,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.295
+  },
+  {
+    "preset_name": "Preset 22",
+    "config_str": "A1:Repu(v1,c1) A2:Smar(v1,c1) A3:Repu(v1,c2) A4:Repu(v2,c1) A5:Sect(v3,c2)",
+    "team_desc": "3\u00d7Repulsion + 1\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        4,
+        1,
+        1
+      ],
+      [
+        3,
+        1,
+        2
+      ],
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        2,
+        3,
+        2
+      ]
+    ],
+    "dominant_strategy": "Repulsion",
+    "avg_vis": 1.6,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 136,
+    "average_energy": 134.2,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 19,
+    "cpu_time": 0.245
+  },
+  {
+    "preset_name": "Preset 23",
+    "config_str": "A1:Sect(v3,c2) A2:Gree(v2,c2) A3:Gree(v3,c2) A4:Repu(v1,c1) A5:Gree(v1,c1)",
+    "team_desc": "3\u00d7Greedy + 1\u00d7Repulsion + 1\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        2,
+        3,
+        2
+      ],
+      [
+        1,
+        2,
+        2
+      ],
+      [
+        1,
+        3,
+        2
+      ],
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1
+      ]
+    ],
+    "dominant_strategy": "Greedy",
+    "avg_vis": 2.0,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 97,
+    "average_energy": 93.8,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 23,
+    "cpu_time": 0.318
+  },
+  {
+    "preset_name": "Preset 24",
+    "config_str": "A1:Sect(v1,c1) A2:Fron(v2,c2) A3:Gree(v3,c2) A4:Gree(v3,c1) A5:Fron(v2,c2)",
+    "team_desc": "2\u00d7Frontier + 2\u00d7Greedy + 1\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        2,
+        1,
+        1
+      ],
+      [
+        0,
+        2,
+        2
+      ],
+      [
+        1,
+        3,
+        2
+      ],
+      [
+        1,
+        3,
+        1
+      ],
+      [
+        0,
+        2,
+        2
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 2.2,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 118,
+    "average_energy": 113.2,
+    "first_pickup_tick": 22,
+    "first_delivery_tick": 27,
+    "cpu_time": 0.328
+  },
+  {
+    "preset_name": "Preset 25",
+    "config_str": "A1:Smar(v2,c1) A2:Gree(v1,c2) A3:Repu(v1,c2) A4:Repu(v3,c1) A5:Fron(v1,c2)",
+    "team_desc": "1\u00d7Frontier + 1\u00d7Greedy + 2\u00d7Repulsion + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        4,
+        2,
+        1
+      ],
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        3,
+        1,
+        2
+      ],
+      [
+        3,
+        3,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "dominant_strategy": "Repulsion",
+    "avg_vis": 1.6,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 133,
+    "average_energy": 130.0,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.258
+  },
+  {
+    "preset_name": "Preset 26",
+    "config_str": "A1:Sect(v1,c2) A2:Smar(v1,c1) A3:Fron(v1,c2) A4:Repu(v2,c2) A5:Repu(v1,c2)",
+    "team_desc": "1\u00d7Frontier + 2\u00d7Repulsion + 1\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        2,
+        1,
+        2
+      ],
+      [
+        4,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        3,
+        2,
+        2
+      ],
+      [
+        3,
+        1,
+        2
+      ]
+    ],
+    "dominant_strategy": "Repulsion",
+    "avg_vis": 1.2,
+    "avg_comm": 1.8,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 128,
+    "average_energy": 125.2,
+    "first_pickup_tick": 17,
+    "first_delivery_tick": 22,
+    "cpu_time": 0.191
+  },
+  {
+    "preset_name": "Preset 27",
+    "config_str": "A1:Sect(v2,c2) A2:Fron(v2,c2) A3:Fron(v3,c1) A4:Fron(v3,c2) A5:Smar(v3,c2)",
+    "team_desc": "3\u00d7Frontier + 1\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        0,
+        2,
+        2
+      ],
+      [
+        0,
+        3,
+        1
+      ],
+      [
+        0,
+        3,
+        2
+      ],
+      [
+        4,
+        3,
+        2
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 2.6,
+    "avg_comm": 1.8,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 99,
+    "average_energy": 96.8,
+    "first_pickup_tick": 17,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.124
+  },
+  {
+    "preset_name": "Preset 28",
+    "config_str": "A1:Repu(v2,c1) A2:Repu(v3,c2) A3:Smar(v2,c1) A4:Fron(v1,c1) A5:Repu(v1,c2)",
+    "team_desc": "1\u00d7Frontier + 3\u00d7Repulsion + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        3,
+        3,
+        2
+      ],
+      [
+        4,
+        2,
+        1
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        3,
+        1,
+        2
+      ]
+    ],
+    "dominant_strategy": "Repulsion",
+    "avg_vis": 1.8,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 74,
+    "average_energy": 72.4,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 19,
+    "cpu_time": 0.112
+  },
+  {
+    "preset_name": "Preset 29",
+    "config_str": "A1:Repu(v2,c1) A2:Gree(v2,c2) A3:Smar(v3,c2) A4:Repu(v2,c1) A5:Fron(v2,c1)",
+    "team_desc": "1\u00d7Frontier + 1\u00d7Greedy + 2\u00d7Repulsion + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        1,
+        2,
+        2
+      ],
+      [
+        4,
+        3,
+        2
+      ],
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        0,
+        2,
+        1
+      ]
+    ],
+    "dominant_strategy": "Repulsion",
+    "avg_vis": 2.2,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 105,
+    "average_energy": 102.4,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.219
+  },
+  {
+    "preset_name": "Preset 30",
+    "config_str": "A1:Gree(v2,c1) A2:Fron(v2,c1) A3:Fron(v1,c1) A4:Sect(v1,c2) A5:Gree(v2,c1)",
+    "team_desc": "2\u00d7Frontier + 2\u00d7Greedy + 1\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        1,
+        2,
+        1
+      ],
+      [
+        0,
+        2,
+        1
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        2,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        1
+      ]
+    ],
+    "dominant_strategy": "Greedy",
+    "avg_vis": 1.6,
+    "avg_comm": 1.2,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 106,
+    "average_energy": 103.2,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 23,
+    "cpu_time": 0.26
+  },
+  {
+    "preset_name": "Preset 31",
+    "config_str": "A1:Fron(v3,c2) A2:Repu(v3,c1) A3:Sect(v3,c1) A4:Repu(v2,c1) A5:Repu(v2,c2)",
+    "team_desc": "1\u00d7Frontier + 3\u00d7Repulsion + 1\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        0,
+        3,
+        2
+      ],
+      [
+        3,
+        3,
+        1
+      ],
+      [
+        2,
+        3,
+        1
+      ],
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        3,
+        2,
+        2
+      ]
+    ],
+    "dominant_strategy": "Repulsion",
+    "avg_vis": 2.6,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 97,
+    "average_energy": 94.4,
+    "first_pickup_tick": 15,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.203
+  },
+  {
+    "preset_name": "Preset 32",
+    "config_str": "A1:Gree(v1,c1) A2:Smar(v2,c2) A3:Smar(v2,c1) A4:Smar(v2,c1) A5:Fron(v1,c2)",
+    "team_desc": "1\u00d7Frontier + 1\u00d7Greedy + 3\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        4,
+        2,
+        2
+      ],
+      [
+        4,
+        2,
+        1
+      ],
+      [
+        4,
+        2,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "dominant_strategy": "Smart Random",
+    "avg_vis": 1.6,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 96,
+    "average_energy": 93.2,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.101
+  },
+  {
+    "preset_name": "Preset 33",
+    "config_str": "A1:Gree(v2,c1) A2:Sect(v2,c2) A3:Gree(v2,c1) A4:Fron(v2,c1) A5:Sect(v3,c1)",
+    "team_desc": "1\u00d7Frontier + 2\u00d7Greedy + 2\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        1,
+        2,
+        1
+      ],
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        1,
+        2,
+        1
+      ],
+      [
+        0,
+        2,
+        1
+      ],
+      [
+        2,
+        3,
+        1
+      ]
+    ],
+    "dominant_strategy": "Greedy",
+    "avg_vis": 2.2,
+    "avg_comm": 1.2,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 77,
+    "average_energy": 74.2,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 22,
+    "cpu_time": 0.199
+  },
+  {
+    "preset_name": "Preset 34",
+    "config_str": "A1:Smar(v1,c1) A2:Smar(v2,c2) A3:Smar(v1,c2) A4:Repu(v1,c2) A5:Gree(v3,c1)",
+    "team_desc": "1\u00d7Greedy + 1\u00d7Repulsion + 3\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        4,
+        1,
+        1
+      ],
+      [
+        4,
+        2,
+        2
+      ],
+      [
+        4,
+        1,
+        2
+      ],
+      [
+        3,
+        1,
+        2
+      ],
+      [
+        1,
+        3,
+        1
+      ]
+    ],
+    "dominant_strategy": "Smart Random",
+    "avg_vis": 1.6,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 136,
+    "average_energy": 134.4,
+    "first_pickup_tick": 17,
+    "first_delivery_tick": 23,
+    "cpu_time": 0.22
+  },
+  {
+    "preset_name": "Preset 35",
+    "config_str": "A1:Sect(v3,c2) A2:Smar(v1,c2) A3:Sect(v2,c2) A4:Fron(v2,c1) A5:Gree(v2,c2)",
+    "team_desc": "1\u00d7Frontier + 1\u00d7Greedy + 2\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        2,
+        3,
+        2
+      ],
+      [
+        4,
+        1,
+        2
+      ],
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        0,
+        2,
+        1
+      ],
+      [
+        1,
+        2,
+        2
+      ]
+    ],
+    "dominant_strategy": "Sector",
+    "avg_vis": 2.0,
+    "avg_comm": 1.8,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 119,
+    "average_energy": 117.4,
+    "first_pickup_tick": 15,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.239
+  },
+  {
+    "preset_name": "Preset 36",
+    "config_str": "A1:Sect(v2,c2) A2:Gree(v2,c2) A3:Sect(v1,c1) A4:Sect(v1,c1) A5:Gree(v2,c2)",
+    "team_desc": "2\u00d7Greedy + 3\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        1,
+        2,
+        2
+      ],
+      [
+        2,
+        1,
+        1
+      ],
+      [
+        2,
+        1,
+        1
+      ],
+      [
+        1,
+        2,
+        2
+      ]
+    ],
+    "dominant_strategy": "Sector",
+    "avg_vis": 1.6,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 149,
+    "average_energy": 146.4,
+    "first_pickup_tick": 15,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.402
+  },
+  {
+    "preset_name": "Preset 37",
+    "config_str": "A1:Sect(v3,c2) A2:Smar(v3,c1) A3:Sect(v2,c1) A4:Fron(v2,c1) A5:Gree(v3,c1)",
+    "team_desc": "1\u00d7Frontier + 1\u00d7Greedy + 2\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        2,
+        3,
+        2
+      ],
+      [
+        4,
+        3,
+        1
+      ],
+      [
+        2,
+        2,
+        1
+      ],
+      [
+        0,
+        2,
+        1
+      ],
+      [
+        1,
+        3,
+        1
+      ]
+    ],
+    "dominant_strategy": "Sector",
+    "avg_vis": 2.6,
+    "avg_comm": 1.2,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 105,
+    "average_energy": 103.0,
+    "first_pickup_tick": 15,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.278
+  },
+  {
+    "preset_name": "Preset 38",
+    "config_str": "A1:Gree(v2,c1) A2:Fron(v3,c1) A3:Fron(v3,c1) A4:Repu(v2,c2) A5:Fron(v3,c1)",
+    "team_desc": "3\u00d7Frontier + 1\u00d7Greedy + 1\u00d7Repulsion",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        1,
+        2,
+        1
+      ],
+      [
+        0,
+        3,
+        1
+      ],
+      [
+        0,
+        3,
+        1
+      ],
+      [
+        3,
+        2,
+        2
+      ],
+      [
+        0,
+        3,
+        1
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 2.6,
+    "avg_comm": 1.2,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 101,
+    "average_energy": 98.0,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 22,
+    "cpu_time": 0.208
+  },
+  {
+    "preset_name": "Preset 39",
+    "config_str": "A1:Fron(v2,c1) A2:Smar(v3,c2) A3:Sect(v2,c1) A4:Sect(v1,c1) A5:Repu(v2,c1)",
+    "team_desc": "1\u00d7Frontier + 1\u00d7Repulsion + 2\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        0,
+        2,
+        1
+      ],
+      [
+        4,
+        3,
+        2
+      ],
+      [
+        2,
+        2,
+        1
+      ],
+      [
+        2,
+        1,
+        1
+      ],
+      [
+        3,
+        2,
+        1
+      ]
+    ],
+    "dominant_strategy": "Sector",
+    "avg_vis": 2.0,
+    "avg_comm": 1.2,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 117,
+    "average_energy": 115.0,
+    "first_pickup_tick": 15,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.194
+  },
+  {
+    "preset_name": "Preset 40",
+    "config_str": "A1:Gree(v3,c2) A2:Smar(v3,c2) A3:Sect(v2,c1) A4:Fron(v2,c1) A5:Gree(v2,c1)",
+    "team_desc": "1\u00d7Frontier + 2\u00d7Greedy + 1\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        1,
+        3,
+        2
+      ],
+      [
+        4,
+        3,
+        2
+      ],
+      [
+        2,
+        2,
+        1
+      ],
+      [
+        0,
+        2,
+        1
+      ],
+      [
+        1,
+        2,
+        1
+      ]
+    ],
+    "dominant_strategy": "Greedy",
+    "avg_vis": 2.4,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 107,
+    "average_energy": 105.0,
+    "first_pickup_tick": 15,
+    "first_delivery_tick": 19,
+    "cpu_time": 0.285
+  },
+  {
+    "preset_name": "Preset 41",
+    "config_str": "A1:Smar(v3,c1) A2:Repu(v1,c1) A3:Smar(v1,c1) A4:Fron(v3,c1) A5:Gree(v2,c1)",
+    "team_desc": "1\u00d7Frontier + 1\u00d7Greedy + 1\u00d7Repulsion + 2\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        4,
+        3,
+        1
+      ],
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        4,
+        1,
+        1
+      ],
+      [
+        0,
+        3,
+        1
+      ],
+      [
+        1,
+        2,
+        1
+      ]
+    ],
+    "dominant_strategy": "Smart Random",
+    "avg_vis": 2.0,
+    "avg_comm": 1.0,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 93,
+    "average_energy": 90.6,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 19,
+    "cpu_time": 0.171
+  },
+  {
+    "preset_name": "Preset 42",
+    "config_str": "A1:Repu(v3,c2) A2:Sect(v3,c2) A3:Sect(v3,c1) A4:Smar(v2,c1) A5:Gree(v3,c2)",
+    "team_desc": "1\u00d7Greedy + 1\u00d7Repulsion + 2\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        3,
+        3,
+        2
+      ],
+      [
+        2,
+        3,
+        2
+      ],
+      [
+        2,
+        3,
+        1
+      ],
+      [
+        4,
+        2,
+        1
+      ],
+      [
+        1,
+        3,
+        2
+      ]
+    ],
+    "dominant_strategy": "Sector",
+    "avg_vis": 2.8,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 110,
+    "average_energy": 108.2,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 19,
+    "cpu_time": 0.279
+  },
+  {
+    "preset_name": "Preset 43",
+    "config_str": "A1:Gree(v1,c2) A2:Fron(v1,c2) A3:Repu(v3,c1) A4:Gree(v1,c2) A5:Sect(v3,c2)",
+    "team_desc": "1\u00d7Frontier + 2\u00d7Greedy + 1\u00d7Repulsion + 1\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        3,
+        3,
+        1
+      ],
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        2,
+        3,
+        2
+      ]
+    ],
+    "dominant_strategy": "Greedy",
+    "avg_vis": 1.8,
+    "avg_comm": 1.8,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 72,
+    "average_energy": 70.2,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.118
+  },
+  {
+    "preset_name": "Preset 44",
+    "config_str": "A1:Sect(v2,c2) A2:Fron(v2,c1) A3:Sect(v3,c1) A4:Gree(v2,c1) A5:Smar(v2,c2)",
+    "team_desc": "1\u00d7Frontier + 1\u00d7Greedy + 2\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        0,
+        2,
+        1
+      ],
+      [
+        2,
+        3,
+        1
+      ],
+      [
+        1,
+        2,
+        1
+      ],
+      [
+        4,
+        2,
+        2
+      ]
+    ],
+    "dominant_strategy": "Sector",
+    "avg_vis": 2.2,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 128,
+    "average_energy": 125.8,
+    "first_pickup_tick": 15,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.238
+  },
+  {
+    "preset_name": "Preset 45",
+    "config_str": "A1:Sect(v1,c2) A2:Repu(v3,c1) A3:Fron(v3,c1) A4:Sect(v2,c1) A5:Gree(v2,c1)",
+    "team_desc": "1\u00d7Frontier + 1\u00d7Greedy + 1\u00d7Repulsion + 2\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        2,
+        1,
+        2
+      ],
+      [
+        3,
+        3,
+        1
+      ],
+      [
+        0,
+        3,
+        1
+      ],
+      [
+        2,
+        2,
+        1
+      ],
+      [
+        1,
+        2,
+        1
+      ]
+    ],
+    "dominant_strategy": "Sector",
+    "avg_vis": 2.2,
+    "avg_comm": 1.2,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 135,
+    "average_energy": 131.4,
+    "first_pickup_tick": 17,
+    "first_delivery_tick": 22,
+    "cpu_time": 0.328
+  },
+  {
+    "preset_name": "Preset 46",
+    "config_str": "A1:Fron(v3,c1) A2:Gree(v1,c2) A3:Smar(v3,c2) A4:Repu(v1,c2) A5:Gree(v3,c2)",
+    "team_desc": "1\u00d7Frontier + 2\u00d7Greedy + 1\u00d7Repulsion + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        0,
+        3,
+        1
+      ],
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        4,
+        3,
+        2
+      ],
+      [
+        3,
+        1,
+        2
+      ],
+      [
+        1,
+        3,
+        2
+      ]
+    ],
+    "dominant_strategy": "Greedy",
+    "avg_vis": 2.2,
+    "avg_comm": 1.8,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 135,
+    "average_energy": 132.6,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.37
+  },
+  {
+    "preset_name": "Preset 47",
+    "config_str": "A1:Sect(v3,c1) A2:Fron(v2,c2) A3:Gree(v3,c1) A4:Gree(v3,c1) A5:Smar(v3,c2)",
+    "team_desc": "1\u00d7Frontier + 2\u00d7Greedy + 1\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        2,
+        3,
+        1
+      ],
+      [
+        0,
+        2,
+        2
+      ],
+      [
+        1,
+        3,
+        1
+      ],
+      [
+        1,
+        3,
+        1
+      ],
+      [
+        4,
+        3,
+        2
+      ]
+    ],
+    "dominant_strategy": "Greedy",
+    "avg_vis": 2.8,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 85,
+    "average_energy": 83.4,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 23,
+    "cpu_time": 0.276
+  },
+  {
+    "preset_name": "Preset 48",
+    "config_str": "A1:Sect(v2,c2) A2:Fron(v3,c1) A3:Smar(v3,c2) A4:Fron(v1,c1) A5:Fron(v2,c1)",
+    "team_desc": "3\u00d7Frontier + 1\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        0,
+        3,
+        1
+      ],
+      [
+        4,
+        3,
+        2
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        2,
+        1
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 2.2,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 87,
+    "average_energy": 84.8,
+    "first_pickup_tick": 17,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.107
+  },
+  {
+    "preset_name": "Preset 49",
+    "config_str": "A1:Smar(v3,c2) A2:Smar(v3,c2) A3:Sect(v1,c1) A4:Repu(v2,c1) A5:Repu(v2,c2)",
+    "team_desc": "2\u00d7Repulsion + 1\u00d7Sector + 2\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        4,
+        3,
+        2
+      ],
+      [
+        4,
+        3,
+        2
+      ],
+      [
+        2,
+        1,
+        1
+      ],
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        3,
+        2,
+        2
+      ]
+    ],
+    "dominant_strategy": "Smart Random",
+    "avg_vis": 2.2,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 83,
+    "average_energy": 81.0,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.124
+  },
+  {
+    "preset_name": "Preset 50",
+    "config_str": "A1:Repu(v3,c1) A2:Smar(v1,c2) A3:Sect(v1,c1) A4:Sect(v1,c1) A5:Repu(v1,c1)",
+    "team_desc": "2\u00d7Repulsion + 2\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        3,
+        3,
+        1
+      ],
+      [
+        4,
+        1,
+        2
+      ],
+      [
+        2,
+        1,
+        1
+      ],
+      [
+        2,
+        1,
+        1
+      ],
+      [
+        3,
+        1,
+        1
+      ]
+    ],
+    "dominant_strategy": "Repulsion",
+    "avg_vis": 1.4,
+    "avg_comm": 1.2,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 126,
+    "average_energy": 124.4,
+    "first_pickup_tick": 15,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.217
+  },
+  {
+    "preset_name": "Preset 51",
+    "config_str": "A1:Repu(v2,c1) A2:Repu(v3,c2) A3:Repu(v2,c2) A4:Sect(v3,c1) A5:Sect(v2,c1)",
+    "team_desc": "3\u00d7Repulsion + 2\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        3,
+        3,
+        2
+      ],
+      [
+        3,
+        2,
+        2
+      ],
+      [
+        2,
+        3,
+        1
+      ],
+      [
+        2,
+        2,
+        1
+      ]
+    ],
+    "dominant_strategy": "Repulsion",
+    "avg_vis": 2.4,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 144,
+    "average_energy": 141.2,
+    "first_pickup_tick": 15,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.336
+  },
+  {
+    "preset_name": "Preset 52",
+    "config_str": "A1:Gree(v1,c2) A2:Gree(v1,c2) A3:Fron(v3,c2) A4:Repu(v3,c1) A5:Fron(v3,c1)",
+    "team_desc": "2\u00d7Frontier + 2\u00d7Greedy + 1\u00d7Repulsion",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        0,
+        3,
+        2
+      ],
+      [
+        3,
+        3,
+        1
+      ],
+      [
+        0,
+        3,
+        1
+      ]
+    ],
+    "dominant_strategy": "Greedy",
+    "avg_vis": 2.2,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 108,
+    "average_energy": 105.2,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.227
+  },
+  {
+    "preset_name": "Preset 53",
+    "config_str": "A1:Repu(v3,c2) A2:Fron(v1,c1) A3:Gree(v3,c1) A4:Gree(v2,c2) A5:Fron(v1,c1)",
+    "team_desc": "2\u00d7Frontier + 2\u00d7Greedy + 1\u00d7Repulsion",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        3,
+        3,
+        2
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        3,
+        1
+      ],
+      [
+        1,
+        2,
+        2
+      ],
+      [
+        0,
+        1,
+        1
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 2.0,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 113,
+    "average_energy": 110.6,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 19,
+    "cpu_time": 0.321
+  },
+  {
+    "preset_name": "Preset 54",
+    "config_str": "A1:Sect(v3,c2) A2:Repu(v3,c1) A3:Gree(v1,c1) A4:Repu(v1,c2) A5:Fron(v3,c1)",
+    "team_desc": "1\u00d7Frontier + 1\u00d7Greedy + 2\u00d7Repulsion + 1\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        2,
+        3,
+        2
+      ],
+      [
+        3,
+        3,
+        1
+      ],
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        3,
+        1,
+        2
+      ],
+      [
+        0,
+        3,
+        1
+      ]
+    ],
+    "dominant_strategy": "Repulsion",
+    "avg_vis": 2.2,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 91,
+    "average_energy": 88.6,
+    "first_pickup_tick": 15,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.188
+  },
+  {
+    "preset_name": "Preset 55",
+    "config_str": "A1:Fron(v3,c2) A2:Gree(v1,c1) A3:Sect(v3,c2) A4:Fron(v1,c1) A5:Fron(v2,c1)",
+    "team_desc": "3\u00d7Frontier + 1\u00d7Greedy + 1\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        0,
+        3,
+        2
+      ],
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        2,
+        3,
+        2
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        2,
+        1
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 2.0,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 150,
+    "average_energy": 147.4,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.271
+  },
+  {
+    "preset_name": "Preset 56",
+    "config_str": "A1:Fron(v2,c2) A2:Fron(v2,c2) A3:Sect(v1,c1) A4:Sect(v3,c2) A5:Sect(v3,c1)",
+    "team_desc": "2\u00d7Frontier + 3\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        0,
+        2,
+        2
+      ],
+      [
+        0,
+        2,
+        2
+      ],
+      [
+        2,
+        1,
+        1
+      ],
+      [
+        2,
+        3,
+        2
+      ],
+      [
+        2,
+        3,
+        1
+      ]
+    ],
+    "dominant_strategy": "Sector",
+    "avg_vis": 2.2,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 106,
+    "average_energy": 103.6,
+    "first_pickup_tick": 15,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.18
+  },
+  {
+    "preset_name": "Preset 57",
+    "config_str": "A1:Fron(v1,c2) A2:Repu(v2,c1) A3:Smar(v3,c1) A4:Gree(v2,c2) A5:Sect(v1,c1)",
+    "team_desc": "1\u00d7Frontier + 1\u00d7Greedy + 1\u00d7Repulsion + 1\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        4,
+        3,
+        1
+      ],
+      [
+        1,
+        2,
+        2
+      ],
+      [
+        2,
+        1,
+        1
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 1.8,
+    "avg_comm": 1.4,
+    "objects_delivered": 9,
+    "total_objects": 10,
+    "delivery_rate": 0.9,
+    "total_ticks": 500,
+    "average_energy": 497.8,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 23,
+    "cpu_time": 1.283
+  },
+  {
+    "preset_name": "Preset 58",
+    "config_str": "A1:Fron(v3,c1) A2:Gree(v2,c1) A3:Smar(v3,c2) A4:Smar(v2,c1) A5:Repu(v2,c1)",
+    "team_desc": "1\u00d7Frontier + 1\u00d7Greedy + 1\u00d7Repulsion + 2\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        0,
+        3,
+        1
+      ],
+      [
+        1,
+        2,
+        1
+      ],
+      [
+        4,
+        3,
+        2
+      ],
+      [
+        4,
+        2,
+        1
+      ],
+      [
+        3,
+        2,
+        1
+      ]
+    ],
+    "dominant_strategy": "Smart Random",
+    "avg_vis": 2.4,
+    "avg_comm": 1.2,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 83,
+    "average_energy": 80.4,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.153
+  },
+  {
+    "preset_name": "Preset 59",
+    "config_str": "A1:Fron(v3,c2) A2:Repu(v2,c2) A3:Repu(v1,c2) A4:Repu(v3,c1) A5:Fron(v2,c1)",
+    "team_desc": "2\u00d7Frontier + 3\u00d7Repulsion",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        0,
+        3,
+        2
+      ],
+      [
+        3,
+        2,
+        2
+      ],
+      [
+        3,
+        1,
+        2
+      ],
+      [
+        3,
+        3,
+        1
+      ],
+      [
+        0,
+        2,
+        1
+      ]
+    ],
+    "dominant_strategy": "Repulsion",
+    "avg_vis": 2.2,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 109,
+    "average_energy": 106.8,
+    "first_pickup_tick": 15,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.193
+  },
+  {
+    "preset_name": "Preset 60",
+    "config_str": "A1:Gree(v3,c1) A2:Sect(v3,c2) A3:Repu(v1,c1) A4:Smar(v3,c2) A5:Gree(v3,c1)",
+    "team_desc": "2\u00d7Greedy + 1\u00d7Repulsion + 1\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        1,
+        3,
+        1
+      ],
+      [
+        2,
+        3,
+        2
+      ],
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        4,
+        3,
+        2
+      ],
+      [
+        1,
+        3,
+        1
+      ]
+    ],
+    "dominant_strategy": "Greedy",
+    "avg_vis": 2.6,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 83,
+    "average_energy": 81.0,
+    "first_pickup_tick": 15,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.299
+  },
+  {
+    "preset_name": "Preset 61",
+    "config_str": "A1:Repu(v2,c1) A2:Repu(v1,c2) A3:Smar(v2,c1) A4:Gree(v2,c2) A5:Fron(v1,c1)",
+    "team_desc": "1\u00d7Frontier + 1\u00d7Greedy + 2\u00d7Repulsion + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        3,
+        1,
+        2
+      ],
+      [
+        4,
+        2,
+        1
+      ],
+      [
+        1,
+        2,
+        2
+      ],
+      [
+        0,
+        1,
+        1
+      ]
+    ],
+    "dominant_strategy": "Repulsion",
+    "avg_vis": 1.6,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 181,
+    "average_energy": 179.6,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 19,
+    "cpu_time": 0.375
+  },
+  {
+    "preset_name": "Preset 62",
+    "config_str": "A1:Fron(v1,c2) A2:Smar(v1,c2) A3:Gree(v1,c1) A4:Fron(v2,c2) A5:Gree(v1,c1)",
+    "team_desc": "2\u00d7Frontier + 2\u00d7Greedy + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        4,
+        1,
+        2
+      ],
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        0,
+        2,
+        2
+      ],
+      [
+        1,
+        1,
+        1
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 1.2,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 174,
+    "average_energy": 170.8,
+    "first_pickup_tick": 17,
+    "first_delivery_tick": 22,
+    "cpu_time": 0.31
+  },
+  {
+    "preset_name": "Preset 63",
+    "config_str": "A1:Fron(v1,c1) A2:Fron(v3,c2) A3:Fron(v2,c1) A4:Fron(v3,c2) A5:Sect(v3,c2)",
+    "team_desc": "4\u00d7Frontier + 1\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        3,
+        2
+      ],
+      [
+        0,
+        2,
+        1
+      ],
+      [
+        0,
+        3,
+        2
+      ],
+      [
+        2,
+        3,
+        2
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 2.4,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 66,
+    "average_energy": 63.8,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 19,
+    "cpu_time": 0.096
+  },
+  {
+    "preset_name": "Preset 64",
+    "config_str": "A1:Fron(v2,c2) A2:Smar(v2,c2) A3:Smar(v3,c1) A4:Smar(v3,c2) A5:Smar(v1,c2)",
+    "team_desc": "1\u00d7Frontier + 4\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        0,
+        2,
+        2
+      ],
+      [
+        4,
+        2,
+        2
+      ],
+      [
+        4,
+        3,
+        1
+      ],
+      [
+        4,
+        3,
+        2
+      ],
+      [
+        4,
+        1,
+        2
+      ]
+    ],
+    "dominant_strategy": "Smart Random",
+    "avg_vis": 2.2,
+    "avg_comm": 1.8,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 96,
+    "average_energy": 93.8,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 25,
+    "cpu_time": 0.056
+  },
+  {
+    "preset_name": "Preset 65",
+    "config_str": "A1:Fron(v3,c2) A2:Smar(v3,c1) A3:Sect(v1,c2) A4:Repu(v3,c1) A5:Gree(v2,c1)",
+    "team_desc": "1\u00d7Frontier + 1\u00d7Greedy + 1\u00d7Repulsion + 1\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        0,
+        3,
+        2
+      ],
+      [
+        4,
+        3,
+        1
+      ],
+      [
+        2,
+        1,
+        2
+      ],
+      [
+        3,
+        3,
+        1
+      ],
+      [
+        1,
+        2,
+        1
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 2.4,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 92,
+    "average_energy": 90.0,
+    "first_pickup_tick": 15,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.188
+  },
+  {
+    "preset_name": "Preset 66",
+    "config_str": "A1:Smar(v3,c1) A2:Sect(v1,c1) A3:Smar(v2,c1) A4:Gree(v3,c2) A5:Gree(v1,c2)",
+    "team_desc": "2\u00d7Greedy + 1\u00d7Sector + 2\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        4,
+        3,
+        1
+      ],
+      [
+        2,
+        1,
+        1
+      ],
+      [
+        4,
+        2,
+        1
+      ],
+      [
+        1,
+        3,
+        2
+      ],
+      [
+        1,
+        1,
+        2
+      ]
+    ],
+    "dominant_strategy": "Smart Random",
+    "avg_vis": 2.0,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 96,
+    "average_energy": 94.0,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 19,
+    "cpu_time": 0.201
+  },
+  {
+    "preset_name": "Preset 67",
+    "config_str": "A1:Repu(v1,c1) A2:Gree(v2,c1) A3:Fron(v3,c1) A4:Gree(v2,c2) A5:Gree(v2,c1)",
+    "team_desc": "1\u00d7Frontier + 3\u00d7Greedy + 1\u00d7Repulsion",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        1,
+        2,
+        1
+      ],
+      [
+        0,
+        3,
+        1
+      ],
+      [
+        1,
+        2,
+        2
+      ],
+      [
+        1,
+        2,
+        1
+      ]
+    ],
+    "dominant_strategy": "Greedy",
+    "avg_vis": 2.0,
+    "avg_comm": 1.2,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 113,
+    "average_energy": 110.0,
+    "first_pickup_tick": 17,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.381
+  },
+  {
+    "preset_name": "Preset 68",
+    "config_str": "A1:Smar(v1,c1) A2:Sect(v1,c1) A3:Smar(v1,c1) A4:Smar(v1,c2) A5:Fron(v3,c2)",
+    "team_desc": "1\u00d7Frontier + 1\u00d7Sector + 3\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        4,
+        1,
+        1
+      ],
+      [
+        2,
+        1,
+        1
+      ],
+      [
+        4,
+        1,
+        1
+      ],
+      [
+        4,
+        1,
+        2
+      ],
+      [
+        0,
+        3,
+        2
+      ]
+    ],
+    "dominant_strategy": "Smart Random",
+    "avg_vis": 1.4,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 193,
+    "average_energy": 191.0,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 19,
+    "cpu_time": 0.174
+  },
+  {
+    "preset_name": "Preset 69",
+    "config_str": "A1:Repu(v2,c2) A2:Fron(v3,c2) A3:Sect(v2,c2) A4:Fron(v3,c2) A5:Gree(v2,c2)",
+    "team_desc": "2\u00d7Frontier + 1\u00d7Greedy + 1\u00d7Repulsion + 1\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        3,
+        2,
+        2
+      ],
+      [
+        0,
+        3,
+        2
+      ],
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        0,
+        3,
+        2
+      ],
+      [
+        1,
+        2,
+        2
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 2.4,
+    "avg_comm": 2.0,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 84,
+    "average_energy": 81.8,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 19,
+    "cpu_time": 0.148
+  },
+  {
+    "preset_name": "Preset 70",
+    "config_str": "A1:Sect(v2,c1) A2:Smar(v3,c2) A3:Smar(v3,c1) A4:Sect(v2,c2) A5:Sect(v2,c2)",
+    "team_desc": "3\u00d7Sector + 2\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        2,
+        2,
+        1
+      ],
+      [
+        4,
+        3,
+        2
+      ],
+      [
+        4,
+        3,
+        1
+      ],
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        2,
+        2,
+        2
+      ]
+    ],
+    "dominant_strategy": "Sector",
+    "avg_vis": 2.4,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 79,
+    "average_energy": 76.8,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.122
+  },
+  {
+    "preset_name": "Preset 71",
+    "config_str": "A1:Gree(v2,c2) A2:Smar(v1,c2) A3:Gree(v2,c2) A4:Repu(v3,c1) A5:Repu(v1,c1)",
+    "team_desc": "2\u00d7Greedy + 2\u00d7Repulsion + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        1,
+        2,
+        2
+      ],
+      [
+        4,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        2
+      ],
+      [
+        3,
+        3,
+        1
+      ],
+      [
+        3,
+        1,
+        1
+      ]
+    ],
+    "dominant_strategy": "Greedy",
+    "avg_vis": 1.8,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 98,
+    "average_energy": 95.2,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 24,
+    "cpu_time": 0.219
+  },
+  {
+    "preset_name": "Preset 72",
+    "config_str": "A1:Smar(v3,c1) A2:Sect(v2,c1) A3:Sect(v2,c2) A4:Sect(v1,c1) A5:Sect(v2,c2)",
+    "team_desc": "4\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        4,
+        3,
+        1
+      ],
+      [
+        2,
+        2,
+        1
+      ],
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        2,
+        1,
+        1
+      ],
+      [
+        2,
+        2,
+        2
+      ]
+    ],
+    "dominant_strategy": "Sector",
+    "avg_vis": 2.0,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 81,
+    "average_energy": 79.0,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.144
+  },
+  {
+    "preset_name": "Preset 73",
+    "config_str": "A1:Sect(v2,c1) A2:Fron(v2,c2) A3:Smar(v1,c2) A4:Repu(v3,c1) A5:Gree(v2,c1)",
+    "team_desc": "1\u00d7Frontier + 1\u00d7Greedy + 1\u00d7Repulsion + 1\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        2,
+        2,
+        1
+      ],
+      [
+        0,
+        2,
+        2
+      ],
+      [
+        4,
+        1,
+        2
+      ],
+      [
+        3,
+        3,
+        1
+      ],
+      [
+        1,
+        2,
+        1
+      ]
+    ],
+    "dominant_strategy": "Sector",
+    "avg_vis": 2.0,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 72,
+    "average_energy": 69.8,
+    "first_pickup_tick": 17,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.149
+  },
+  {
+    "preset_name": "Preset 74",
+    "config_str": "A1:Repu(v1,c1) A2:Gree(v1,c1) A3:Gree(v2,c1) A4:Smar(v2,c1) A5:Gree(v1,c2)",
+    "team_desc": "3\u00d7Greedy + 1\u00d7Repulsion + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        2,
+        1
+      ],
+      [
+        4,
+        2,
+        1
+      ],
+      [
+        1,
+        1,
+        2
+      ]
+    ],
+    "dominant_strategy": "Greedy",
+    "avg_vis": 1.4,
+    "avg_comm": 1.2,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 139,
+    "average_energy": 137.0,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 19,
+    "cpu_time": 0.317
+  },
+  {
+    "preset_name": "Preset 75",
+    "config_str": "A1:Sect(v2,c2) A2:Smar(v3,c1) A3:Repu(v2,c1) A4:Smar(v1,c1) A5:Fron(v3,c2)",
+    "team_desc": "1\u00d7Frontier + 1\u00d7Repulsion + 1\u00d7Sector + 2\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        4,
+        3,
+        1
+      ],
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        4,
+        1,
+        1
+      ],
+      [
+        0,
+        3,
+        2
+      ]
+    ],
+    "dominant_strategy": "Smart Random",
+    "avg_vis": 2.2,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 74,
+    "average_energy": 72.6,
+    "first_pickup_tick": 15,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.086
+  },
+  {
+    "preset_name": "Preset 76",
+    "config_str": "A1:Gree(v3,c2) A2:Fron(v1,c2) A3:Gree(v3,c2) A4:Gree(v1,c2) A5:Sect(v1,c2)",
+    "team_desc": "1\u00d7Frontier + 3\u00d7Greedy + 1\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        1,
+        3,
+        2
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        3,
+        2
+      ],
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        2,
+        1,
+        2
+      ]
+    ],
+    "dominant_strategy": "Greedy",
+    "avg_vis": 1.8,
+    "avg_comm": 2.0,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 90,
+    "average_energy": 88.0,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.285
+  },
+  {
+    "preset_name": "Preset 77",
+    "config_str": "A1:Sect(v1,c2) A2:Gree(v2,c2) A3:Fron(v1,c2) A4:Gree(v2,c1) A5:Sect(v3,c2)",
+    "team_desc": "1\u00d7Frontier + 2\u00d7Greedy + 2\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        2,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        2
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        1
+      ],
+      [
+        2,
+        3,
+        2
+      ]
+    ],
+    "dominant_strategy": "Sector",
+    "avg_vis": 1.8,
+    "avg_comm": 1.8,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 168,
+    "average_energy": 166.0,
+    "first_pickup_tick": 17,
+    "first_delivery_tick": 23,
+    "cpu_time": 0.47
+  },
+  {
+    "preset_name": "Preset 78",
+    "config_str": "A1:Repu(v3,c1) A2:Sect(v1,c2) A3:Fron(v2,c2) A4:Fron(v1,c1) A5:Gree(v1,c2)",
+    "team_desc": "2\u00d7Frontier + 1\u00d7Greedy + 1\u00d7Repulsion + 1\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        3,
+        3,
+        1
+      ],
+      [
+        2,
+        1,
+        2
+      ],
+      [
+        0,
+        2,
+        2
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        2
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 1.6,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 149,
+    "average_energy": 147.4,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 19,
+    "cpu_time": 0.311
+  },
+  {
+    "preset_name": "Preset 79",
+    "config_str": "A1:Smar(v1,c2) A2:Sect(v3,c2) A3:Gree(v2,c2) A4:Fron(v1,c1) A5:Fron(v3,c2)",
+    "team_desc": "2\u00d7Frontier + 1\u00d7Greedy + 1\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        4,
+        1,
+        2
+      ],
+      [
+        2,
+        3,
+        2
+      ],
+      [
+        1,
+        2,
+        2
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        3,
+        2
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 2.0,
+    "avg_comm": 1.8,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 75,
+    "average_energy": 72.8,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.139
+  },
+  {
+    "preset_name": "Preset 80",
+    "config_str": "A1:Smar(v1,c1) A2:Repu(v2,c1) A3:Gree(v1,c1) A4:Repu(v2,c2) A5:Repu(v2,c2)",
+    "team_desc": "1\u00d7Greedy + 3\u00d7Repulsion + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        4,
+        1,
+        1
+      ],
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        3,
+        2,
+        2
+      ],
+      [
+        3,
+        2,
+        2
+      ]
+    ],
+    "dominant_strategy": "Repulsion",
+    "avg_vis": 1.6,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 81,
+    "average_energy": 78.4,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 19,
+    "cpu_time": 0.153
+  },
+  {
+    "preset_name": "Preset 81",
+    "config_str": "A1:Gree(v3,c1) A2:Repu(v2,c2) A3:Repu(v3,c1) A4:Repu(v2,c1) A5:Smar(v3,c1)",
+    "team_desc": "1\u00d7Greedy + 3\u00d7Repulsion + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        1,
+        3,
+        1
+      ],
+      [
+        3,
+        2,
+        2
+      ],
+      [
+        3,
+        3,
+        1
+      ],
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        4,
+        3,
+        1
+      ]
+    ],
+    "dominant_strategy": "Repulsion",
+    "avg_vis": 2.6,
+    "avg_comm": 1.2,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 87,
+    "average_energy": 85.2,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.228
+  },
+  {
+    "preset_name": "Preset 82",
+    "config_str": "A1:Smar(v3,c2) A2:Gree(v3,c1) A3:Sect(v2,c1) A4:Sect(v2,c2) A5:Fron(v1,c1)",
+    "team_desc": "1\u00d7Frontier + 1\u00d7Greedy + 2\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        4,
+        3,
+        2
+      ],
+      [
+        1,
+        3,
+        1
+      ],
+      [
+        2,
+        2,
+        1
+      ],
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        0,
+        1,
+        1
+      ]
+    ],
+    "dominant_strategy": "Sector",
+    "avg_vis": 2.2,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 70,
+    "average_energy": 68.4,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.145
+  },
+  {
+    "preset_name": "Preset 83",
+    "config_str": "A1:Repu(v1,c1) A2:Repu(v1,c1) A3:Fron(v1,c2) A4:Gree(v2,c2) A5:Fron(v3,c2)",
+    "team_desc": "2\u00d7Frontier + 1\u00d7Greedy + 2\u00d7Repulsion",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        2
+      ],
+      [
+        0,
+        3,
+        2
+      ]
+    ],
+    "dominant_strategy": "Repulsion",
+    "avg_vis": 1.6,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 142,
+    "average_energy": 139.6,
+    "first_pickup_tick": 15,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.328
+  },
+  {
+    "preset_name": "Preset 84",
+    "config_str": "A1:Repu(v2,c1) A2:Gree(v1,c2) A3:Smar(v1,c1) A4:Repu(v1,c1) A5:Gree(v3,c1)",
+    "team_desc": "2\u00d7Greedy + 2\u00d7Repulsion + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        4,
+        1,
+        1
+      ],
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        1,
+        3,
+        1
+      ]
+    ],
+    "dominant_strategy": "Repulsion",
+    "avg_vis": 1.6,
+    "avg_comm": 1.2,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 105,
+    "average_energy": 103.0,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 19,
+    "cpu_time": 0.247
+  },
+  {
+    "preset_name": "Preset 85",
+    "config_str": "A1:Smar(v2,c1) A2:Repu(v2,c2) A3:Fron(v1,c1) A4:Gree(v3,c2) A5:Fron(v3,c2)",
+    "team_desc": "2\u00d7Frontier + 1\u00d7Greedy + 1\u00d7Repulsion + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        4,
+        2,
+        1
+      ],
+      [
+        3,
+        2,
+        2
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        3,
+        2
+      ],
+      [
+        0,
+        3,
+        2
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 2.2,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 90,
+    "average_energy": 87.8,
+    "first_pickup_tick": 15,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.121
+  },
+  {
+    "preset_name": "Preset 86",
+    "config_str": "A1:Fron(v1,c2) A2:Smar(v1,c2) A3:Repu(v2,c2) A4:Sect(v2,c2) A5:Fron(v1,c2)",
+    "team_desc": "2\u00d7Frontier + 1\u00d7Repulsion + 1\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        4,
+        1,
+        2
+      ],
+      [
+        3,
+        2,
+        2
+      ],
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 1.4,
+    "avg_comm": 2.0,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 124,
+    "average_energy": 120.6,
+    "first_pickup_tick": 18,
+    "first_delivery_tick": 22,
+    "cpu_time": 0.182
+  },
+  {
+    "preset_name": "Preset 87",
+    "config_str": "A1:Repu(v3,c1) A2:Fron(v2,c1) A3:Gree(v2,c2) A4:Sect(v1,c1) A5:Fron(v2,c2)",
+    "team_desc": "2\u00d7Frontier + 1\u00d7Greedy + 1\u00d7Repulsion + 1\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        3,
+        3,
+        1
+      ],
+      [
+        0,
+        2,
+        1
+      ],
+      [
+        1,
+        2,
+        2
+      ],
+      [
+        2,
+        1,
+        1
+      ],
+      [
+        0,
+        2,
+        2
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 2.0,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 119,
+    "average_energy": 117.0,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 19,
+    "cpu_time": 0.259
+  },
+  {
+    "preset_name": "Preset 88",
+    "config_str": "A1:Fron(v3,c2) A2:Sect(v2,c1) A3:Gree(v2,c1) A4:Fron(v1,c2) A5:Smar(v3,c1)",
+    "team_desc": "2\u00d7Frontier + 1\u00d7Greedy + 1\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 0,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 1,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        0,
+        3,
+        2
+      ],
+      [
+        2,
+        2,
+        1
+      ],
+      [
+        1,
+        2,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        4,
+        3,
+        1
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 2.2,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 87,
+    "average_energy": 84.2,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.14
+  },
+  {
+    "preset_name": "Preset 89",
+    "config_str": "A1:Gree(v1,c2) A2:Sect(v3,c1) A3:Fron(v1,c1) A4:Gree(v3,c2) A5:Fron(v2,c1)",
+    "team_desc": "2\u00d7Frontier + 2\u00d7Greedy + 1\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        2,
+        3,
+        1
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        3,
+        2
+      ],
+      [
+        0,
+        2,
+        1
+      ]
+    ],
+    "dominant_strategy": "Greedy",
+    "avg_vis": 2.0,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 115,
+    "average_energy": 112.6,
+    "first_pickup_tick": 15,
+    "first_delivery_tick": 19,
+    "cpu_time": 0.303
+  },
+  {
+    "preset_name": "Preset 90",
+    "config_str": "A1:Smar(v1,c2) A2:Fron(v1,c2) A3:Fron(v1,c2) A4:Fron(v1,c1) A5:Sect(v3,c2)",
+    "team_desc": "3\u00d7Frontier + 1\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        4,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        2,
+        3,
+        2
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 1.4,
+    "avg_comm": 1.8,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 108,
+    "average_energy": 106.2,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 22,
+    "cpu_time": 0.139
+  },
+  {
+    "preset_name": "Preset 91",
+    "config_str": "A1:Smar(v1,c1) A2:Repu(v3,c1) A3:Sect(v3,c2) A4:Gree(v3,c1) A5:Smar(v2,c1)",
+    "team_desc": "1\u00d7Greedy + 1\u00d7Repulsion + 1\u00d7Sector + 2\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        4,
+        1,
+        1
+      ],
+      [
+        3,
+        3,
+        1
+      ],
+      [
+        2,
+        3,
+        2
+      ],
+      [
+        1,
+        3,
+        1
+      ],
+      [
+        4,
+        2,
+        1
+      ]
+    ],
+    "dominant_strategy": "Smart Random",
+    "avg_vis": 2.4,
+    "avg_comm": 1.2,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 156,
+    "average_energy": 154.6,
+    "first_pickup_tick": 15,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.277
+  },
+  {
+    "preset_name": "Preset 92",
+    "config_str": "A1:Repu(v2,c1) A2:Sect(v2,c2) A3:Fron(v2,c2) A4:Sect(v3,c2) A5:Gree(v3,c1)",
+    "team_desc": "1\u00d7Frontier + 1\u00d7Greedy + 1\u00d7Repulsion + 2\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 3,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        0,
+        2,
+        2
+      ],
+      [
+        2,
+        3,
+        2
+      ],
+      [
+        1,
+        3,
+        1
+      ]
+    ],
+    "dominant_strategy": "Sector",
+    "avg_vis": 2.4,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 71,
+    "average_energy": 69.0,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 19,
+    "cpu_time": 0.186
+  },
+  {
+    "preset_name": "Preset 93",
+    "config_str": "A1:Sect(v2,c1) A2:Gree(v1,c2) A3:Smar(v2,c2) A4:Smar(v3,c1) A5:Repu(v3,c1)",
+    "team_desc": "1\u00d7Greedy + 1\u00d7Repulsion + 1\u00d7Sector + 2\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        2,
+        2,
+        1
+      ],
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        4,
+        2,
+        2
+      ],
+      [
+        4,
+        3,
+        1
+      ],
+      [
+        3,
+        3,
+        1
+      ]
+    ],
+    "dominant_strategy": "Smart Random",
+    "avg_vis": 2.2,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 89,
+    "average_energy": 86.6,
+    "first_pickup_tick": 17,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.118
+  },
+  {
+    "preset_name": "Preset 94",
+    "config_str": "A1:Sect(v3,c2) A2:Sect(v2,c2) A3:Fron(v1,c1) A4:Fron(v1,c2) A5:Fron(v1,c1)",
+    "team_desc": "3\u00d7Frontier + 2\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        2,
+        3,
+        2
+      ],
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        1
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 1.6,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 94,
+    "average_energy": 91.8,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 26,
+    "cpu_time": 0.132
+  },
+  {
+    "preset_name": "Preset 95",
+    "config_str": "A1:Sect(v1,c1) A2:Fron(v1,c1) A3:Smar(v2,c1) A4:Repu(v3,c2) A5:Sect(v3,c2)",
+    "team_desc": "1\u00d7Frontier + 1\u00d7Repulsion + 2\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        2,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        4,
+        2,
+        1
+      ],
+      [
+        3,
+        3,
+        2
+      ],
+      [
+        2,
+        3,
+        2
+      ]
+    ],
+    "dominant_strategy": "Sector",
+    "avg_vis": 2.0,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 75,
+    "average_energy": 72.4,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.102
+  },
+  {
+    "preset_name": "Preset 96",
+    "config_str": "A1:Repu(v2,c1) A2:Fron(v2,c1) A3:Fron(v2,c2) A4:Smar(v3,c1) A5:Smar(v1,c2)",
+    "team_desc": "2\u00d7Frontier + 1\u00d7Repulsion + 2\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 0,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        0,
+        2,
+        1
+      ],
+      [
+        0,
+        2,
+        2
+      ],
+      [
+        4,
+        3,
+        1
+      ],
+      [
+        4,
+        1,
+        2
+      ]
+    ],
+    "dominant_strategy": "Frontier",
+    "avg_vis": 2.0,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 101,
+    "average_energy": 99.8,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.119
+  },
+  {
+    "preset_name": "Preset 97",
+    "config_str": "A1:Repu(v1,c2) A2:Smar(v1,c1) A3:Gree(v1,c2) A4:Repu(v2,c1) A5:Repu(v1,c2)",
+    "team_desc": "1\u00d7Greedy + 3\u00d7Repulsion + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 4,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 2
+      }
+    ],
+    "preset_raw": [
+      [
+        3,
+        1,
+        2
+      ],
+      [
+        4,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        2
+      ],
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        3,
+        1,
+        2
+      ]
+    ],
+    "dominant_strategy": "Repulsion",
+    "avg_vis": 1.2,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 115,
+    "average_energy": 112.2,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.207
+  },
+  {
+    "preset_name": "Preset 98",
+    "config_str": "A1:Repu(v1,c1) A2:Sect(v3,c2) A3:Sect(v1,c2) A4:Sect(v3,c2) A5:Repu(v3,c1)",
+    "team_desc": "2\u00d7Repulsion + 3\u00d7Sector",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 3,
+        "radius": 3,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        2,
+        3,
+        2
+      ],
+      [
+        2,
+        1,
+        2
+      ],
+      [
+        2,
+        3,
+        2
+      ],
+      [
+        3,
+        3,
+        1
+      ]
+    ],
+    "dominant_strategy": "Sector",
+    "avg_vis": 2.2,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 80,
+    "average_energy": 78.0,
+    "first_pickup_tick": 15,
+    "first_delivery_tick": 20,
+    "cpu_time": 0.159
+  },
+  {
+    "preset_name": "Preset 99",
+    "config_str": "A1:Fron(v1,c2) A2:Sect(v1,c1) A3:Sect(v2,c2) A4:Smar(v3,c2) A5:Smar(v2,c1)",
+    "team_desc": "1\u00d7Frontier + 2\u00d7Sector + 2\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 0,
+        "radius": 1,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 2,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 2,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 4,
+        "radius": 2,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        2,
+        1,
+        1
+      ],
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        4,
+        3,
+        2
+      ],
+      [
+        4,
+        2,
+        1
+      ]
+    ],
+    "dominant_strategy": "Sector",
+    "avg_vis": 1.8,
+    "avg_comm": 1.6,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 101,
+    "average_energy": 98.4,
+    "first_pickup_tick": 16,
+    "first_delivery_tick": 21,
+    "cpu_time": 0.132
+  },
+  {
+    "preset_name": "Preset 100",
+    "config_str": "A1:Repu(v1,c1) A2:Sect(v3,c1) A3:Repu(v2,c2) A4:Smar(v3,c2) A5:Gree(v1,c1)",
+    "team_desc": "1\u00d7Greedy + 2\u00d7Repulsion + 1\u00d7Sector + 1\u00d7Smart Random",
+    "agent_configs": [
+      {
+        "agent_id": 0,
+        "strategy_id": 3,
+        "radius": 1,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 1,
+        "strategy_id": 2,
+        "radius": 3,
+        "comm_radius": 1
+      },
+      {
+        "agent_id": 2,
+        "strategy_id": 3,
+        "radius": 2,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 3,
+        "strategy_id": 4,
+        "radius": 3,
+        "comm_radius": 2
+      },
+      {
+        "agent_id": 4,
+        "strategy_id": 1,
+        "radius": 1,
+        "comm_radius": 1
+      }
+    ],
+    "preset_raw": [
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        2,
+        3,
+        1
+      ],
+      [
+        3,
+        2,
+        2
+      ],
+      [
+        4,
+        3,
+        2
+      ],
+      [
+        1,
+        1,
+        1
+      ]
+    ],
+    "dominant_strategy": "Repulsion",
+    "avg_vis": 2.0,
+    "avg_comm": 1.4,
+    "objects_delivered": 10,
+    "total_objects": 10,
+    "delivery_rate": 1.0,
+    "total_ticks": 63,
+    "average_energy": 61.2,
+    "first_pickup_tick": 14,
+    "first_delivery_tick": 19,
+    "cpu_time": 0.118
+  }
+]

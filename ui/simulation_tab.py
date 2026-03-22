@@ -4,6 +4,8 @@ import json
 import os
 import time
 
+import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
 import streamlit as st
 
@@ -18,9 +20,11 @@ from ui.helpers import (
     apply_pending_preset_if_any,
     build_agents,
     build_agents_table_html,
+    build_delivery_curve,
     default_radius_for_strategy,
     render_battery_html,
     render_status_card_html,
+    style_dark_chart,
 )
 from ui.rendering import load_pygame_icon, load_uploaded_pygame_icon, render_frame
 
@@ -189,7 +193,10 @@ def _run_simulation(instance_path, seed, agent_configs, max_ticks, update_every,
 
     elapsed = time.perf_counter() - t0
     summary = sim.metrics.summary()
-    st.session_state.setdefault("history_runs", []).append({"summary": summary, "configs": list(agent_configs)})
+    delivery_curve = build_delivery_curve(sim.metrics.history, max_ticks)
+    st.session_state.setdefault("history_runs", []).append({"summary": summary, "configs": list(agent_configs), "delivery_curve": delivery_curve})
+    st.session_state["last_delivery_curve"] = delivery_curve
+    st.session_state["last_max_ticks"] = max_ticks
     return elapsed, summary
 
 
@@ -230,7 +237,33 @@ def _render_simulation_results(summary, elapsed, agent_configs):
         mime="application/json",
     )
 
+    st.divider()
+    st.markdown("#### 📈 Curva cumulativa deliveries")
+    delivery_curve = st.session_state.get("last_delivery_curve")
+    max_ticks = st.session_state.get("last_max_ticks", summary["total_ticks"])
+    
+    if delivery_curve is not None:
+        fig_curve, ax_curve = plt.subplots(figsize=(10, 5), facecolor="#0e1117")
+        style_dark_chart(ax_curve)
+        x_ticks = np.arange(1, max_ticks + 1)
+        curve_arr = np.array(delivery_curve, dtype=float)
+        if curve_arr.ndim > 1:
+            curve_arr = curve_arr[0]
+        ax_curve.plot(x_ticks, curve_arr, linewidth=2.5, color="#00D9FF", label="Deliveries cumulative")
+        ax_curve.fill_between(x_ticks, curve_arr, alpha=0.2, color="#00D9FF")
+        ax_curve.set_title("", color="white")
+        ax_curve.set_xlabel("Tick", color="white")
+        ax_curve.set_ylabel("Oggetti consegnati", color="white")
+        ax_curve.set_ylim(bottom=0)
+        ax_curve.grid(axis="y", color="#2a2a2a", linewidth=0.7, alpha=0.6)
+        fig_curve.tight_layout()
+        st.pyplot(fig_curve)
+        plt.close(fig_curve)
+    else:
+        st.info("Curva deliveries non disponibile.")
 
+    st.divider()
+    
 def _render_history_runs():
     history_runs = st.session_state.get("history_runs", [])
     if len(history_runs) <= 1:
