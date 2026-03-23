@@ -376,6 +376,43 @@ def render_matplotlib_frame(tick: int, agents, env, show_fog: bool = True) -> "p
                 ax.add_patch(rect)
                 ax.plot([a.col, b.col], [a.row, b.row], color="cyan", alpha=0.4, linewidth=0.8, linestyle=":", zorder=7)
     
+    # Disegna raggi di visione degli agenti
+    for i, agent in enumerate(agents):
+        if not agent.is_active:
+            continue
+        color = agent_colors_hex[i % len(agent_colors_hex)]
+        
+        # Converti colore hex a RGB per il fill con trasparenza
+        try:
+            color_hex = color.lstrip("#")
+            color_rgb = tuple(int(color_hex[i:i+2], 16) / 255 for i in (0, 2, 4))
+        except Exception:
+            color_rgb = (0.5, 0.5, 0.5)
+        
+        # Raggio di visione (fill + bordo)
+        visibility_circle = mpatches.Circle(
+            (agent.col, agent.row), 
+            agent.visibility_radius,
+            facecolor=color_rgb,
+            edgecolor=color_rgb,
+            linewidth=1.2,
+            alpha=0.12,
+            zorder=5.5
+        )
+        ax.add_patch(visibility_circle)
+        
+        # Bordo più marcato del raggio
+        visibility_circle_edge = mpatches.Circle(
+            (agent.col, agent.row), 
+            agent.visibility_radius,
+            facecolor="none",
+            edgecolor=color_rgb,
+            linewidth=1.0,
+            alpha=0.35,
+            zorder=5.6
+        )
+        ax.add_patch(visibility_circle_edge)
+    
     # Disegna agenti
     for i, agent in enumerate(agents):
         color = agent_colors_hex[i % len(agent_colors_hex)]
