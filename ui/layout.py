@@ -10,7 +10,7 @@ from ui.simulation_tab import render_simulation_tab
 
 def configure_page():
     st.set_page_config(
-        page_title="Swarm Intelligence Project",
+        page_title="SwarmLab",
         page_icon="🤖",
         layout="wide",
         initial_sidebar_state="collapsed",
