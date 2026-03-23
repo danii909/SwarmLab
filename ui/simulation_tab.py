@@ -177,7 +177,11 @@ def _run_simulation(instance_path, seed, agent_configs, max_ticks, update_every,
     t0 = time.perf_counter()
     try:
         for tick, cur_agents, cur_env in sim.step_gen():
+            # Debug: log ogni tick
+            st.write(f"DEBUG: Tick {tick}/{max_ticks} (update_every={update_every})")
+            
             if tick % update_every == 0 or cur_env.all_delivered:
+                st.write(f"DEBUG: Rendering frame per tick {tick}")
                 png = render_frame(
                     tick,
                     cur_agents,
@@ -196,6 +200,7 @@ def _run_simulation(instance_path, seed, agent_configs, max_ticks, update_every,
                 battery_ph.markdown(render_battery_html(cur_agents, agent_configs), unsafe_allow_html=True)
                 if frame_delay > 0:
                     time.sleep(frame_delay)
+        st.write("DEBUG: Simulazione completata")
     except Exception as exc:
         st.error(f"Errore durante la simulazione: {exc}")
         st.exception(exc)
