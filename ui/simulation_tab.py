@@ -175,13 +175,16 @@ def _run_simulation(instance_path, seed, agent_configs, max_ticks, update_every,
     package_icon_img = load_uploaded_pygame_icon(package_icon_upload) or load_pygame_icon(PACKAGE_ICON_DEFAULT_PATH)
 
     t0 = time.perf_counter()
+    
+    # Raccogli TUTTI i frame e i dati durante la simulazione
+    frames_data = []
+    
     try:
+        status_msg = st.empty()
+        status_msg.info("⏳ Esecuzione simulazione (questa operazione non è interattiva)...")
+        
         for tick, cur_agents, cur_env in sim.step_gen():
-            # Debug: log ogni tick
-            st.write(f"DEBUG: Tick {tick}/{max_ticks} (update_every={update_every})")
-            
             if tick % update_every == 0 or cur_env.all_delivered:
-                st.write(f"DEBUG: Rendering frame per tick {tick}")
                 png = render_frame(
                     tick,
                     cur_agents,
@@ -190,17 +193,34 @@ def _run_simulation(instance_path, seed, agent_configs, max_ticks, update_every,
                     agent_icon_img=agent_icon_img,
                     package_icon_img=package_icon_img,
                 )
-                frame_ph.image(png, width="stretch")
-                prog_ph.progress(min(tick / max_ticks, 1.0), text=f"Tick {tick}/{max_ticks}")
-                tick_ph.markdown(render_status_card_html("Tick", str(tick), "#4C72B0"), unsafe_allow_html=True)
-                stats_ph.markdown(
-                    render_status_card_html("Consegnati", f"{cur_env.delivered} / {cur_env.total_objects}", "#55A868"),
-                    unsafe_allow_html=True,
-                )
-                battery_ph.markdown(render_battery_html(cur_agents, agent_configs), unsafe_allow_html=True)
-                if frame_delay > 0:
-                    time.sleep(frame_delay)
-        st.write("DEBUG: Simulazione completata")
+                frames_data.append({
+                    "tick": tick,
+                    "png": png,
+                    "agents": cur_agents,
+                    "env": cur_env,
+                })
+        
+        status_msg.success("✓ Simulazione completata! Riproduzione...")
+        
+        # Ora riproduci i frame salvati uno per uno
+        for frame_info in frames_data:
+            tick = frame_info["tick"]
+            png = frame_info["png"]
+            cur_agents = frame_info["agents"]
+            cur_env = frame_info["env"]
+            
+            frame_ph.image(png, width="stretch")
+            prog_ph.progress(min(tick / max_ticks, 1.0), text=f"Tick {tick}/{max_ticks}")
+            tick_ph.markdown(render_status_card_html("Tick", str(tick), "#4C72B0"), unsafe_allow_html=True)
+            stats_ph.markdown(
+                render_status_card_html("Consegnati", f"{cur_env.delivered} / {cur_env.total_objects}", "#55A868"),
+                unsafe_allow_html=True,
+            )
+            battery_ph.markdown(render_battery_html(cur_agents, agent_configs), unsafe_allow_html=True)
+            if frame_delay > 0:
+                time.sleep(frame_delay)
+        
+        status_msg.empty()
     except Exception as exc:
         st.error(f"Errore durante la simulazione: {exc}")
         st.exception(exc)
