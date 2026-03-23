@@ -261,3 +261,157 @@ def render_frame(tick: int, agents, env, show_fog: bool = True, agent_icon_img=N
             screen.blit(label, (cx - label.get_width() // 2, cy - label.get_height() // 2))
 
     return np.transpose(pygame.surfarray.array3d(screen), (1, 0, 2))
+
+
+def render_matplotlib_frame(tick: int, agents, env, show_fog: bool = True) -> "plt.Figure":
+    """
+    Renderizza un frame della simulazione usando matplotlib.
+    Ritorna una figura matplotlib pronta per st.pyplot().
+    
+    Parameters
+    ----------
+    tick : int
+        Numero del tick corrente
+    agents : list
+        Lista degli agenti
+    env : Environment
+        Oggetto ambiente
+    show_fog : bool
+        Se True, oscura le celle non esplorate
+    
+    Returns
+    -------
+    plt.Figure
+        Figura matplotlib pronta per Streamlit
+    """
+    import matplotlib.pyplot as plt
+    import matplotlib.patches as mpatches
+    from src.environment.grid import CellType
+    from src.agents.sensors import can_communicate
+    
+    # Palette agenti
+    AGENT_COLORS = [
+        "#FF6B35",  # arancione
+        "#4ECDC4",  # teal
+        "#FFD166",  # giallo
+        "#A8E6CF",  # verde menta
+        "#C879FF",  # viola
+        "#FF8B94",  # rosa
+        "#06D6A0",  # verde acqua
+        "#118AB2",  # blu scuro
+        "#EF476F",  # rosso rosa
+        "#073B4C",  # blu navy
+    ]
+    
+    # Palette colori celle
+    CELL_COLORS = {
+        CellType.EMPTY:     np.array([1.00, 1.00, 1.00]),   # bianco
+        CellType.WALL:      np.array([0.22, 0.22, 0.22]),   # grigio scuro
+        CellType.WAREHOUSE: np.array([0.29, 0.56, 0.85]),   # blu
+        CellType.ENTRANCE:  np.array([0.18, 0.80, 0.44]),   # verde
+        CellType.EXIT:      np.array([0.91, 0.30, 0.24]),   # rosso
+    }
+    
+    size = env.grid.size
+    
+    # Crea figura
+    fig, ax = plt.subplots(figsize=(10, 10), facecolor="#0e1117")
+    ax.set_facecolor("#0e1117")
+    
+    # Disegna griglia
+    grid_img = np.zeros((size, size, 3), dtype=float)
+    for r in range(size):
+        for c in range(size):
+            ct = CellType(env.grid.data[r][c])
+            grid_img[r, c] = CELL_COLORS[ct]
+    
+    ax.imshow(grid_img, interpolation="nearest", origin="upper", extent=[-0.5, size - 0.5, size - 0.5, -0.5])
+    
+    # Disegna fog of war
+    if show_fog:
+        all_seen = set()
+        for agent in agents:
+            all_seen.update(agent.local_map.keys())
+        
+        fog_img = np.zeros((size, size, 4), dtype=float)
+        fog_img[:, :, :3] = 0.05
+        fog_img[:, :, 3] = 0.75
+        
+        for (r, c) in all_seen:
+            fog_img[r, c, 3] = 0.0
+        
+        ax.imshow(fog_img, interpolation="nearest", origin="upper", extent=[-0.5, size - 0.5, size - 0.5, -0.5], zorder=2)
+    
+    # Griglia di linee
+    for i in range(size + 1):
+        ax.axhline(i - 0.5, color="#555", lw=0.3, zorder=1)
+        ax.axvline(i - 0.5, color="#555", lw=0.3, zorder=1)
+    
+    # Disegna oggetti
+    obj_positions = list(env._objects)
+    if obj_positions:
+        obj_cols, obj_rows = zip(*[(c, r) for r, c in obj_positions])
+        ax.scatter(obj_cols, obj_rows, c="#FFD700", marker="*", s=300, zorder=6, edgecolors="#FFA500", linewidths=0.8)
+    
+    # Disegna linee di comunicazione
+    for i in range(len(agents)):
+        a = agents[i]
+        if not a.is_active:
+            continue
+        for j in range(i + 1, len(agents)):
+            b = agents[j]
+            if not b.is_active:
+                continue
+            if can_communicate(a.pos, b.pos, min(a.comm_radius, b.comm_radius)):
+                rect = mpatches.Rectangle(
+                    (min(a.col, b.col) - 0.5, min(a.row, b.row) - 0.5),
+                    abs(a.col - b.col) + 1,
+                    abs(a.row - b.row) + 1,
+                    facecolor="#4DD0E1",
+                    edgecolor="#00BCD4",
+                    linewidth=1.2,
+                    alpha=0.18,
+                    zorder=6.5,
+                )
+                ax.add_patch(rect)
+                ax.plot([a.col, b.col], [a.row, b.row], color="cyan", alpha=0.4, linewidth=0.8, linestyle=":", zorder=7)
+    
+    # Disegna agenti
+    for i, agent in enumerate(agents):
+        color = AGENT_COLORS[i % len(AGENT_COLORS)]
+        
+        # Cerchio agente
+        circle = mpatches.Circle(
+            (agent.col, agent.row), 0.38,
+            facecolor=color, edgecolor="black", linewidth=0.5, zorder=8
+        )
+        ax.add_patch(circle)
+        
+        # Numero agente
+        ax.text(agent.col, agent.row, str(i + 1), ha="center", va="center",
+                fontsize=8, fontweight="bold", color="black", zorder=9)
+        
+        # Indicatore oggetto
+        if agent.carrying_object:
+            pulse = 1 + 0.3 * abs(np.sin(tick * 0.35))
+            ax.scatter(agent.col, agent.row, c="gold", marker="o", s=50 * pulse, 
+                      facecolors="none", edgecolors="gold", linewidths=1, zorder=10)
+    
+    ax.set_xlim(-0.5, size - 0.5)
+    ax.set_ylim(size - 0.5, -0.5)
+    ax.set_xlabel("Colonna", color="white", fontsize=9)
+    ax.set_ylabel("Riga", color="white", fontsize=9)
+    ax.tick_params(colors="white", labelsize=8)
+    
+    # Titolo con informazioni
+    title = f"Tick {tick:4d}  |  Consegnati {env.delivered}/{env.total_objects}  |  Rimanenti {env.remaining_objects}"
+    ax.set_title(title, color="white", fontsize=11, fontweight="bold")
+    
+    # Spina transparent
+    for spine in ax.spines.values():
+        spine.set_color("#555")
+        spine.set_linewidth(0.5)
+    
+    fig.tight_layout()
+    
+    return fig

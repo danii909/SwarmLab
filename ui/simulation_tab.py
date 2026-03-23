@@ -26,7 +26,7 @@ from ui.helpers import (
     render_status_card_html,
     style_dark_chart,
 )
-from ui.rendering import load_pygame_icon, load_uploaded_pygame_icon, render_frame
+from ui.rendering import load_pygame_icon, load_uploaded_pygame_icon, render_frame, render_matplotlib_frame
 
 
 SIMULATION_SLIDER_CSS = """
@@ -71,6 +71,13 @@ def _render_agent_config_panel():
             step=0.01,
             help="Piu alto = simulazione visivamente piu lenta.",
         )
+        viz_mode = st.radio(
+            "Visualizzazione",
+            options=["Matplotlib", "Pygame"],
+            horizontal=True,
+            key="viz_mode",
+            help="Matplotlib è consigliato per Streamlit, Pygame per performace migliore",
+        )
         agent_icon_upload = st.file_uploader(
             "Immagine agente personalizzata",
             type=["png", "jpg", "jpeg", "webp"],
@@ -111,10 +118,10 @@ def _render_agent_config_panel():
             "comm_radius": comm_r,
         })
 
-    return run_clicked, agent_configs, max_ticks, update_every, frame_delay, agent_icon_upload, package_icon_upload
+    return run_clicked, agent_configs, max_ticks, update_every, frame_delay, agent_icon_upload, package_icon_upload, viz_mode
 
 
-def _render_preview(instance_path, agent_configs, max_ticks, frame_ph, tick_ph, stats_ph, prog_ph, battery_ph, agent_icon_upload, package_icon_upload):
+def _render_preview(instance_path, agent_configs, max_ticks, frame_ph, tick_ph, stats_ph, prog_ph, battery_ph, agent_icon_upload, package_icon_upload, viz_mode):
     preview_agents = []
     total_objects_preview = "?"
 
@@ -152,7 +159,7 @@ def _render_preview(instance_path, agent_configs, max_ticks, frame_ph, tick_ph, 
         battery_ph.info("Configura gli agenti e premi Avvia.")
 
 
-def _run_simulation(instance_path, seed, agent_configs, max_ticks, update_every, frame_delay, frame_ph, tick_ph, stats_ph, prog_ph, battery_ph, agent_icon_upload, package_icon_upload):
+def _run_simulation(instance_path, seed, agent_configs, max_ticks, update_every, frame_delay, frame_ph, tick_ph, stats_ph, prog_ph, battery_ph, agent_icon_upload, package_icon_upload, viz_mode):
     if not os.path.isfile(instance_path):
         st.error(f"File istanza non trovato: `{instance_path}`")
         st.stop()
@@ -178,15 +185,28 @@ def _run_simulation(instance_path, seed, agent_configs, max_ticks, update_every,
     try:
         for tick, cur_agents, cur_env in sim.step_gen():
             if tick % update_every == 0 or cur_env.all_delivered:
-                png = render_frame(
-                    tick,
-                    cur_agents,
-                    cur_env,
-                    show_fog=True,
-                    agent_icon_img=agent_icon_img,
-                    package_icon_img=package_icon_img,
-                )
-                frame_ph.image(png, width="stretch")
+                if viz_mode == "Matplotlib":
+                    # Visualizzazione con Matplotlib
+                    fig = render_matplotlib_frame(
+                        tick,
+                        cur_agents,
+                        cur_env,
+                        show_fog=True,
+                    )
+                    frame_ph.pyplot(fig)
+                    plt.close(fig)
+                else:
+                    # Visualizzazione con Pygame (default)
+                    png = render_frame(
+                        tick,
+                        cur_agents,
+                        cur_env,
+                        show_fog=True,
+                        agent_icon_img=agent_icon_img,
+                        package_icon_img=package_icon_img,
+                    )
+                    frame_ph.image(png, width="stretch")
+                
                 prog_ph.progress(min(tick / max_ticks, 1.0), text=f"Tick {tick}/{max_ticks}")
                 tick_ph.markdown(render_status_card_html("Tick", str(tick), "#4C72B0"), unsafe_allow_html=True)
                 stats_ph.markdown(
@@ -317,7 +337,7 @@ def render_simulation_tab(instance_path: str, seed: int):
 
     with col_cfg:
         sim_cfg = _render_agent_config_panel()
-    run_clicked, agent_configs, max_ticks, update_every, frame_delay, agent_icon_upload, package_icon_upload = sim_cfg
+    run_clicked, agent_configs, max_ticks, update_every, frame_delay, agent_icon_upload, package_icon_upload, viz_mode = sim_cfg
 
     with col_sim:
         frame_ph = st.empty()
@@ -343,6 +363,7 @@ def render_simulation_tab(instance_path: str, seed: int):
             battery_ph,
             agent_icon_upload,
             package_icon_upload,
+            viz_mode,
         )
     else:
         elapsed, summary = _run_simulation(
@@ -359,6 +380,7 @@ def render_simulation_tab(instance_path: str, seed: int):
             battery_ph,
             agent_icon_upload,
             package_icon_upload,
+            viz_mode,
         )
         _render_simulation_results(summary, elapsed, agent_configs)
 
