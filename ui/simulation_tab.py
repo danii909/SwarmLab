@@ -4,6 +4,7 @@ import json
 import os
 import time
 
+import io
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -78,6 +79,10 @@ def _render_agent_config_panel():
             key="viz_mode",
             help="Matplotlib è consigliato per Streamlit, Pygame per performace migliore",
         )
+        st.info(
+                "ℹ️ **Nota**: Temporaneamente, la visualizzazione interattiva online funziona solo con Matplotlib. "
+                "Le foto custom per agenti e pacchi funzionano solo con Pygame."
+            )
         agent_icon_upload = st.file_uploader(
             "Immagine agente personalizzata",
             type=["png", "jpg", "jpeg", "webp"],
@@ -88,7 +93,6 @@ def _render_agent_config_panel():
             type=["png", "jpg", "jpeg", "webp"],
             key="package_icon_upload",
         )
-
     uploaded_preset = st.file_uploader("📂 Carica preset config. agenti", type=["json"], key="upload_preset_col")
     if uploaded_preset is not None:
         try:
@@ -132,18 +136,30 @@ def _render_preview(instance_path, agent_configs, max_ticks, frame_ph, tick_ph, 
             preview_agents = build_agents(agent_configs, len(agent_configs))
             total_objects_preview = str(env_preview.total_objects)
 
-            preview_agent_icon = load_uploaded_pygame_icon(agent_icon_upload)
-            preview_package_icon = load_uploaded_pygame_icon(package_icon_upload) or load_pygame_icon(PACKAGE_ICON_DEFAULT_PATH)
+            if viz_mode == "Matplotlib":
+                # Anteprima con Matplotlib
+                fig = render_matplotlib_frame(
+                    0,
+                    preview_agents,
+                    env_preview,
+                    show_fog=False,
+                )
+                frame_ph.pyplot(fig)
+                plt.close(fig)
+            else:
+                # Anteprima con Pygame
+                preview_agent_icon = load_uploaded_pygame_icon(agent_icon_upload)
+                preview_package_icon = load_uploaded_pygame_icon(package_icon_upload) or load_pygame_icon(PACKAGE_ICON_DEFAULT_PATH)
 
-            preview_png = render_frame(
-                0,
-                preview_agents,
-                env_preview,
-                show_fog=False,
-                agent_icon_img=preview_agent_icon,
-                package_icon_img=preview_package_icon,
-            )
-            frame_ph.image(preview_png, width="stretch")
+                preview_png = render_frame(
+                    0,
+                    preview_agents,
+                    env_preview,
+                    show_fog=False,
+                    agent_icon_img=preview_agent_icon,
+                    package_icon_img=preview_package_icon,
+                )
+                frame_ph.image(preview_png, width="stretch")
         except Exception as preview_exc:
             frame_ph.warning(f"Anteprima non disponibile: {preview_exc}")
     else:
@@ -184,28 +200,43 @@ def _run_simulation(instance_path, seed, agent_configs, max_ticks, update_every,
     t0 = time.perf_counter()
     try:
         for tick, cur_agents, cur_env in sim.step_gen():
-            if tick % update_every == 0 or cur_env.all_delivered:
-                if viz_mode == "Matplotlib":
-                    # Visualizzazione con Matplotlib
-                    fig = render_matplotlib_frame(
-                        tick,
-                        cur_agents,
-                        cur_env,
-                        show_fog=True,
-                    )
-                    frame_ph.pyplot(fig)
-                    plt.close(fig)
-                else:
-                    # Visualizzazione con Pygame (default)
-                    png = render_frame(
-                        tick,
-                        cur_agents,
-                        cur_env,
-                        show_fog=True,
-                        agent_icon_img=agent_icon_img,
-                        package_icon_img=package_icon_img,
-                    )
-                    frame_ph.image(png, width="stretch")
+
+            t_frame_start = time.perf_counter()
+            
+            if viz_mode == "Matplotlib":
+                # GENERAZIONE FIGURA
+                fig = render_matplotlib_frame(tick, cur_agents, cur_env, show_fog=True)
+                
+                # TRUCCO DEL BUFFER: Salviamo in RAM, non su disco
+                buf = io.BytesIO()
+                # Usiamo DPI bassi (80-90) per essere fulminei
+                fig.savefig(buf, format='png', bbox_inches='tight', pad_inches=0, dpi=90)
+                
+                # PULIZIA MEMORIA: Fondamentale per non far crashare il server
+                plt.close(fig) 
+                
+                # AGGIORNAMENTO ISTANTANEO: Inviamo i byte dell'immagine al browser
+                frame_ph.image(buf.getvalue(), use_container_width=True)
+                
+                # Aggiorna anche la colonna status a destra (che mancava per Matplotlib)
+                prog_ph.progress(min(tick / max_ticks, 1.0), text=f"Tick {tick}/{max_ticks}")
+                tick_ph.markdown(render_status_card_html("Tick", str(tick), "#4C72B0"), unsafe_allow_html=True)
+                stats_ph.markdown(
+                    render_status_card_html("Consegnati", f"{cur_env.delivered} / {cur_env.total_objects}", "#55A868"),
+                    unsafe_allow_html=True,
+                )
+                battery_ph.markdown(render_battery_html(cur_agents, agent_configs), unsafe_allow_html=True)
+            else:
+                # Visualizzazione con Pygame (default)
+                png = render_frame(
+                    tick,
+                    cur_agents,
+                    cur_env,
+                    show_fog=True,
+                    agent_icon_img=agent_icon_img,
+                    package_icon_img=package_icon_img,
+                )
+                frame_ph.image(png, width="stretch")
                 
                 prog_ph.progress(min(tick / max_ticks, 1.0), text=f"Tick {tick}/{max_ticks}")
                 tick_ph.markdown(render_status_card_html("Tick", str(tick), "#4C72B0"), unsafe_allow_html=True)
@@ -214,8 +245,11 @@ def _run_simulation(instance_path, seed, agent_configs, max_ticks, update_every,
                     unsafe_allow_html=True,
                 )
                 battery_ph.markdown(render_battery_html(cur_agents, agent_configs), unsafe_allow_html=True)
-                if frame_delay > 0:
-                    time.sleep(frame_delay)
+            # COMPENSAZIONE DEL DELAY (Vedi punto 2)
+            render_duration = time.perf_counter() - t_frame_start
+            actual_wait = max(0, frame_delay - render_duration)
+            if actual_wait > 0:
+                time.sleep(actual_wait)
     except Exception as exc:
         st.error(f"Errore durante la simulazione: {exc}")
         st.exception(exc)

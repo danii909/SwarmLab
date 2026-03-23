@@ -6,6 +6,7 @@ from pathlib import Path
 import numpy as np
 
 from ui.constants import (
+    AGENT_PALETTE,
     AGENT_RGB_PALETTE,
     CELL_RGB,
     STREAMLIT_BG,
@@ -289,19 +290,8 @@ def render_matplotlib_frame(tick: int, agents, env, show_fog: bool = True) -> "p
     from src.environment.grid import CellType
     from src.agents.sensors import can_communicate
     
-    # Palette agenti
-    AGENT_COLORS = [
-        "#FF6B35",  # arancione
-        "#4ECDC4",  # teal
-        "#FFD166",  # giallo
-        "#A8E6CF",  # verde menta
-        "#C879FF",  # viola
-        "#FF8B94",  # rosa
-        "#06D6A0",  # verde acqua
-        "#118AB2",  # blu scuro
-        "#EF476F",  # rosso rosa
-        "#073B4C",  # blu navy
-    ]
+    # Usa palette canonico da constants
+    agent_colors_hex = AGENT_PALETTE
     
     # Palette colori celle
     CELL_COLORS = {
@@ -347,11 +337,21 @@ def render_matplotlib_frame(tick: int, agents, env, show_fog: bool = True) -> "p
         ax.axhline(i - 0.5, color="#555", lw=0.3, zorder=1)
         ax.axvline(i - 0.5, color="#555", lw=0.3, zorder=1)
     
-    # Disegna oggetti
+    # Disegna pacchi come piccoli rettangoli
     obj_positions = list(env._objects)
-    if obj_positions:
-        obj_cols, obj_rows = zip(*[(c, r) for r, c in obj_positions])
-        ax.scatter(obj_cols, obj_rows, c="#FFD700", marker="*", s=300, zorder=6, edgecolors="#FFA500", linewidths=0.8)
+    for r, c in obj_positions:
+        # Disegna pacco come rettangolo con dimensione 0.5x0.3
+        rect = mpatches.FancyBboxPatch(
+            (c - 0.25, r - 0.15), 0.5, 0.3,
+            boxstyle="round,pad=0.02",
+            facecolor="#E8A633",
+            edgecolor="#8B5A00",
+            linewidth=1.2,
+            zorder=6,
+        )
+        ax.add_patch(rect)
+        # Aggiungi linea al centro del pacco
+        ax.plot([c - 0.15, c + 0.15], [r, r], color="#8B5A00", linewidth=0.8, zorder=7)
     
     # Disegna linee di comunicazione
     for i in range(len(agents)):
@@ -367,8 +367,8 @@ def render_matplotlib_frame(tick: int, agents, env, show_fog: bool = True) -> "p
                     (min(a.col, b.col) - 0.5, min(a.row, b.row) - 0.5),
                     abs(a.col - b.col) + 1,
                     abs(a.row - b.row) + 1,
-                    facecolor="#4DD0E1",
-                    edgecolor="#00BCD4",
+                    facecolor="#0400FF",
+                    edgecolor="#0800A3",
                     linewidth=1.2,
                     alpha=0.18,
                     zorder=6.5,
@@ -378,7 +378,7 @@ def render_matplotlib_frame(tick: int, agents, env, show_fog: bool = True) -> "p
     
     # Disegna agenti
     for i, agent in enumerate(agents):
-        color = AGENT_COLORS[i % len(AGENT_COLORS)]
+        color = agent_colors_hex[i % len(agent_colors_hex)]
         
         # Cerchio agente
         circle = mpatches.Circle(
@@ -389,7 +389,7 @@ def render_matplotlib_frame(tick: int, agents, env, show_fog: bool = True) -> "p
         
         # Numero agente
         ax.text(agent.col, agent.row, str(i + 1), ha="center", va="center",
-                fontsize=8, fontweight="bold", color="black", zorder=9)
+                fontsize=8, fontweight="bold", color="white", zorder=9)
         
         # Indicatore oggetto
         if agent.carrying_object:
@@ -399,13 +399,11 @@ def render_matplotlib_frame(tick: int, agents, env, show_fog: bool = True) -> "p
     
     ax.set_xlim(-0.5, size - 0.5)
     ax.set_ylim(size - 0.5, -0.5)
-    ax.set_xlabel("Colonna", color="white", fontsize=9)
-    ax.set_ylabel("Riga", color="white", fontsize=9)
-    ax.tick_params(colors="white", labelsize=8)
-    
-    # Titolo con informazioni
-    title = f"Tick {tick:4d}  |  Consegnati {env.delivered}/{env.total_objects}  |  Rimanenti {env.remaining_objects}"
-    ax.set_title(title, color="white", fontsize=11, fontweight="bold")
+    ax.set_xticks([])
+    ax.set_yticks([])
+    ax.set_xlabel("")
+    ax.set_ylabel("")
+    ax.set_title("")
     
     # Spina transparent
     for spine in ax.spines.values():
