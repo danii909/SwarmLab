@@ -19,7 +19,6 @@ from typing import Dict, List, Optional, Set, Tuple, TYPE_CHECKING
 from src.environment.environment import Environment
 from src.environment.grid import CellType
 from src.agents.agent import Agent, AgentState
-from src.agents.strategies.ant_colony_lite import AntColonyLiteStrategy
 from src.agents.strategies.frontier import FrontierStrategy
 from src.agents.strategies.Repulsion import RepulsionStrategy
 from src.agents.strategies.sector import SectorStrategy
@@ -36,7 +35,6 @@ from src.simulation.metrics import Metrics
 def _create_default_agents(num_agents: int = 5) -> List[Agent]:
     """Crea 5 agenti, uno per strategia, con raggio visibilità variato."""
     strategies = [
-        AntColonyLiteStrategy(),
         FrontierStrategy(),
         RepulsionStrategy(),
         SectorStrategy(num_agents=num_agents),

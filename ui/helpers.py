@@ -41,7 +41,6 @@ def build_agents(agent_configs: list, num_agents: int):
     from src.agents.strategies.sector import SectorStrategy
     from src.agents.strategies.Repulsion import RepulsionStrategy
     from src.agents.strategies.random_walk import RandomWalkStrategy
-    from src.agents.strategies.ant_colony_lite import AntColonyLiteStrategy
 
     factories = {
         0: lambda: FrontierStrategy(),
@@ -49,7 +48,6 @@ def build_agents(agent_configs: list, num_agents: int):
         2: lambda: SectorStrategy(num_agents=num_agents),
         3: lambda: RepulsionStrategy(),
         4: lambda: RandomWalkStrategy(),
-        5: lambda: AntColonyLiteStrategy(),
     }
 
     agents = []

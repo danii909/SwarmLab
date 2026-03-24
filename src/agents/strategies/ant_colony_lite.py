@@ -123,7 +123,15 @@ class AntColonyLiteStrategy(ExplorationStrategy):
         other_positions = []
 
         for other_id, info in agent.known_agents.items():
-            pos = info.get("pos")
+            # `known_agents` historically stores values as tuples
+            # `(pos, tick)`; some code might use dicts with a "pos" key.
+            if isinstance(info, (tuple, list)):
+                pos = info[0] if info else None
+            elif isinstance(info, dict):
+                pos = info.get("pos")
+            else:
+                pos = None
+
             if pos is None:
                 continue
             if pos == agent.pos:

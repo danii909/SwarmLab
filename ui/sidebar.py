@@ -8,13 +8,13 @@ def render_global_sidebar():
         st.divider()
 
         st.subheader("📁 Istanza")
+        map_dir = Path("docs") / "Mappa"
         instances_found = sorted(
-            str(p) for p in Path(".").glob("**/*.json")
-            if "Consegna" in str(p) or "instances" in str(p).lower()
+            str(p) for p in map_dir.glob("*.json")
         )
         if not instances_found:
-            instances_found = ["Consegna/A.json", "Consegna/B.json", "A.json", "B.json"]
-        
+            instances_found = [str(map_dir / "A.json"), str(map_dir / "B.json")]
+
         instances_found = [p for p in instances_found if Path(p).exists()] or instances_found
         instance_path = st.selectbox("File istanza", options=instances_found, index=0)
 

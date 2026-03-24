@@ -8,10 +8,9 @@ STRATEGIES = {
     2: ("Sector", "Suddivide la griglia in settori assegnati"),
     3: ("Repulsion", "Dispersione emergente dagli altri agenti"),
     4: ("Smart Random", "Random walk guidato da info gain, stale e separazione"),
-    5: ("Ant-Colony", "Coverage con feromone evaporativo condiviso"),
 }
 
-DEFAULT_RADIUS = {0: 2, 1: 3, 2: 2, 3: 2, 4: 3, 5: 2}
+DEFAULT_RADIUS = {0: 2, 1: 3, 2: 2, 3: 2, 4: 3}
 
 STRATEGY_COLORS = {
     "Frontier": "#4C72B0",
@@ -19,7 +18,7 @@ STRATEGY_COLORS = {
     "Sector": "#55A868",
     "Repulsion": "#C44E52",
     "Smart Random": "#8172B2",
-    "Ant-Colony": "#1F9D8A",
+    # Ant-Colony removed from available strategies
 }
 
 CELL_RGB = {
