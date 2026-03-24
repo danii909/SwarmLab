@@ -104,7 +104,7 @@ def render_battery_html(agents, agent_configs) -> str:
             f"      <span style='color:#cfd3d8; font-size:0.78em;'>{strat_name}</span>"
             f"      <span style='color:#8ea2b3; font-size:0.72em;'>{radii_label}</span>"
             f"    </span>"
-            f"    <span style='color:#999; font-size:0.7em;'>🔋{agent.battery}/{INITIAL_BATTERY} — {state_label}</span>"
+            f"    <span style='color:#999; font-size:0.7em;'>🔋{agent.battery}/{INITIAL_BATTERY} - {state_label}</span>"
             f"  </div>"
             f"  <div style='background:#333; border-radius:4px; height:10px; overflow:hidden; margin-top:2px;'>"
             f"    <div style='background:{bar_color}; width:{pct_display:.1f}%; height:100%; border-radius:4px; transition: width 0.3s ease;'></div>"
