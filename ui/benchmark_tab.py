@@ -103,7 +103,7 @@ def _render_benchmark_controls():
                 help="Numero di configurazioni casuali da eseguire senza duplicati, fin dove possibile.",
             )
             st.markdown("")
-            bench_clicked = st.button("▶ Avvia benchmark", type="primary", use_container_width=True, key="bench_run")
+            bench_clicked = st.button("▶ Avvia benchmark", type="primary", width='stretch', key="bench_run")
             if bench_strategy_ids:
                 selected_names = [STRATEGIES[sid][0] for sid in bench_strategy_ids]
                 st.caption(
